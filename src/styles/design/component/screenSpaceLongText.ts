@@ -1,5 +1,5 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, Link, Text } from '../Component'
+import { Component, Link, Text } from '../../Component'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { TextStyles } from '../TextStyles'

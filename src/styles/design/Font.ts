@@ -9,8 +9,8 @@ export enum Font {
 
 export async function loadFonts (): Promise<void> {
   await ExpoFont.loadAsync({
-    [Font.KellySlabRegular]: require('../../assets/fonts/KellySlab-Regular.ttf'),
-    [Font.RobotoRegular]: require('../../assets/fonts/Roboto-Regular.ttf'),
-    [Font.NotoSansJPRegular]: require('../../assets/fonts/NotoSansJP-Regular.ttf')
+    [Font.KellySlabRegular]: require('../../../assets/fonts/KellySlab-Regular.ttf'),
+    [Font.RobotoRegular]: require('../../../assets/fonts/Roboto-Regular.ttf'),
+    [Font.NotoSansJPRegular]: require('../../../assets/fonts/NotoSansJP-Regular.ttf')
   })
 }

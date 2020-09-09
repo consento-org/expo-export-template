@@ -1,7 +1,7 @@
 import React from 'react'
 import { ITimeInSeconds } from '../util/useSeconds'
 import Svg, { Circle, Line, Linecap, Linejoin } from 'react-native-svg'
-import { elementClock } from '../../styles/component/elementClock'
+import { elementClock } from '../../styles/design/component/elementClock'
 import { TLineEnd, Polygon } from '../../styles/Component'
 import { ViewStyle } from 'react-native'
 

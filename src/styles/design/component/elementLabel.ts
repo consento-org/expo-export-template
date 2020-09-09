@@ -1,5 +1,5 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, Text } from '../Component'
+import { Component, Text } from '../../Component'
 import { TextStyles } from '../TextStyles'
 /* eslint-disable lines-between-class-members */
 export class ElementLabelClass extends Component {

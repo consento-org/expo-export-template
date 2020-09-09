@@ -1,5 +1,5 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, Polygon, Text } from '../Component'
+import { Component, Polygon, Text } from '../../Component'
 import { Color } from '../Color'
 import { TextStyles } from '../TextStyles'
 /* eslint-disable lines-between-class-members */

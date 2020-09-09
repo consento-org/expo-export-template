@@ -1,5 +1,5 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, Link } from '../Component'
+import { Component, Link } from '../../Component'
 import { elementInput } from './elementInput'
 import { elementLabel } from './elementLabel'
 import { elementButton } from './elementButton'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, ViewStyle } from 'react-native'
 import { Locale, localeContent } from '../util/locale'
-import { elementBox } from '../../styles/component/elementBox'
+import { elementBox } from '../../styles/design/component/elementBox'
 
 const style: ViewStyle = {
   width: elementBox.width,

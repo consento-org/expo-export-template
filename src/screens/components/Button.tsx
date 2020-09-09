@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, ViewStyle, TouchableOpacity } from 'react-native'
-import { elementButton } from '../../styles/component/elementButton'
+import { elementButton } from '../../styles/design/component/elementButton'
 import { localized, Locale } from '../util/locale'
 
 const label = localized({ [Locale.ja]: elementButton.labelJa, [Locale.en]: elementButton.labelEn })
