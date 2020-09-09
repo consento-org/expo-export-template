@@ -2,6 +2,7 @@
 import { ImageSourcePropType } from 'react-native'
 import { Cache } from '../util/Cache'
 import { ImageAsset } from '../util/ImageAsset'
+
 const images = new Cache<ImageAsset, ImageSourcePropType>(ImageAsset)
 
 export const Asset = {

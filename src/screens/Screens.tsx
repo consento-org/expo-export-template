@@ -11,13 +11,13 @@ import { Header } from './components/Header'
 import { SpaceContent } from './SpaceContent'
 import { TimeContent } from './TimeContent'
 import { MindContent } from './MindContent'
-import { ElementHeaderClass } from '../styles/design/layer/elementHeader'
+import { elementHeader } from '../styles/design/layer/elementHeader'
 import { ImagePlacement } from '../styles/util/ImagePlacement'
 import { LayerPlacement } from '../styles/util/LayerPlacement'
-import { Layer } from '../styles/util/Layer'
 import { TextBox } from '../styles/util/TextBox'
 import { SketchImage } from '../styles/util/react/SketchImage'
 import { SketchTextBox } from '../styles/util/react/SketchTextBox'
+import { ILayer } from '../styles/util/types'
 
 const root = createStackNavigator()
 
@@ -32,11 +32,11 @@ const mainScreenData: Array<{ name: string, design: IMainScreen, Content: () => 
  * the same way. To make sure that the designer doesns't mistake them,
  * we can define an interface that needs to be implemented.
  */
-export interface IMainScreen extends Layer {
+export interface IMainScreen extends ILayer {
   illustration: ImagePlacement
   left: ImagePlacement
   right: ImagePlacement
-  header: LayerPlacement<{}, ElementHeaderClass>
+  header: LayerPlacement<{}, typeof elementHeader>
   titleEn: TextBox
   titleJa: TextBox
 }
