@@ -1,10 +1,9 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import { Component, Link } from '../Component'
 import { elementBox } from './elementBox'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { Color } from '../Color'
-
 /* eslint-disable lines-between-class-members */
 export class ScreenSpaceGridClass extends Component {
   box1 = new Link(elementBox, { x: 9, y: 138, w: 115, h: 111 }, {})

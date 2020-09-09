@@ -1,11 +1,10 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import { Component, Link } from '../Component'
 import { elementInput } from './elementInput'
 import { elementLabel } from './elementLabel'
 import { elementButton } from './elementButton'
 import { elementHeader } from './elementHeader'
 import { Color } from '../Color'
-
 /* eslint-disable lines-between-class-members */
 export class ScreenMindContentClass extends Component {
   input = new Link(elementInput, { x: 0, y: 205, w: 375, h: 62 }, {})

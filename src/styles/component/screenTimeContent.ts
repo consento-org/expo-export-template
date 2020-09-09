@@ -1,9 +1,8 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import { Component, Link } from '../Component'
 import { elementClock } from './elementClock'
 import { elementHeader } from './elementHeader'
 import { Color } from '../Color'
-
 /* eslint-disable lines-between-class-members */
 export class ScreenTimeContentClass extends Component {
   clock = new Link(elementClock, { x: 67.5, y: 186, w: 240, h: 239 }, {})

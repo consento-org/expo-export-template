@@ -1,8 +1,10 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
-import React, { useState, useEffect } from 'react'
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+import React from 'react'
 import { ImageAsset, Slice9 } from '../Asset'
-import { Image, ImageStyle, TextStyle, TextInput, Text as NativeText, View, ViewStyle, FlexStyle, TouchableOpacity, GestureResponderEvent, Dimensions, Insets, ReturnKeyTypeOptions, Keyboard, KeyboardEvent } from 'react-native'
+import { Image, ImageStyle, TextStyle, TextInput, Text as NativeText, View, ViewStyle, FlexStyle, TouchableOpacity, GestureResponderEvent, Insets, ReturnKeyTypeOptions } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useVUnits } from './util/useVUnits'
+import { exists, useDefault } from './util/lang'
 
 export type TRenderGravity = 'start' | 'end' | 'center' | 'stretch' | 'none'
 export interface IRenderOptions {
@@ -14,121 +16,13 @@ export interface IRenderOptions {
   onLayout?: () => any
 }
 
-export function createGlobalEffect <T> ({ update, init }: {
-  update: () => T | undefined
-  init: (handler: () => any) => () => any
-}): () => T {
-  const listeners = new Set<(lastUpdate: number) => any>()
-  let output: T = update()
-  let globalLastUpdate: number
-  function updateOutput (): void {
-    const newOutput = update()
-    if (newOutput === undefined) {
-      return
-    }
-    output = newOutput
-    globalLastUpdate = Date.now()
-    for (const update of listeners) {
-      update(globalLastUpdate)
-    }
-  }
-  let exit: () => any
-  return () => {
-    const setLastUpdate = useState<number>(globalLastUpdate)[1]
-    useEffect(() => {
-      listeners.add(setLastUpdate)
-      if (listeners.size === 1) {
-        exit = init(updateOutput)
-      }
-      return () => {
-        listeners.delete(setLastUpdate)
-        if (listeners.size === 0) {
-          exit()
-        }
-      }
-    }, [false]) // Only update the effect once
-    return output
-  }
-}
-
-export enum TOrientation {
-  horizontal = 'horizontal',
-  vertical = 'vertical'
-}
-
-export interface IVUnits {
-  vw: (number: number) => number
-  vh: (number: number) => number
-  vmin: (number: number) => number
-  vmax: (number: number) => number
-  orientation: TOrientation
-  isHorz: boolean
-  isVert: boolean
-}
-
-const mem = {
-  vw: null,
-  vh: null
-}
-
-let keyboardSize = 0
-export const useVUnits = createGlobalEffect({
-  update () {
-    const { width, height } = Dimensions.get('window')
-    const vw = width / 100
-    const vh = (height - keyboardSize) / 100
-    if (vw === mem.vw && vh === mem.vh) {
-      return
-    }
-    mem.vw = vw
-    mem.vh = vh
-    const orientation = vw > vh ? TOrientation.horizontal : TOrientation.vertical
-    return Object.freeze({
-      vw: (number: number = 1) => vw * number,
-      vh: (number: number = 1) => vh * number,
-      vmin: (number: number = 1) => Math.min(vw * number, vh * number),
-      vmax: (number: number = 1) => Math.max(vw * number, vh * number),
-      orientation: orientation,
-      isHorz: orientation === TOrientation.horizontal,
-      isVert: orientation === TOrientation.vertical
-    })
-  },
-  init: handler => {
-    Dimensions.addEventListener('change', handler)
-    const keyboardHandler = (e: KeyboardEvent): void => {
-      keyboardSize = e.endCoordinates.height
-      handler()
-    }
-    Keyboard.addListener('keyboardDidChangeFrame', keyboardHandler)
-    Keyboard.addListener('keyboardDidShow', keyboardHandler)
-    Keyboard.addListener('keyboardDidHide', keyboardHandler)
-    return () => {
-      Dimensions.removeEventListener('change', handler)
-      Keyboard.removeListener('keyboardDidShow', keyboardHandler)
-      Keyboard.removeListener('keyboardDidChangeFrame', keyboardHandler)
-      Keyboard.removeListener('keyboardDidHide', keyboardHandler)
-    }
-  }
-})
-
-function applyRenderOptions<T extends FlexStyle> ({ horz, vert }: IRenderOptions = {}, place: Placement, style?: T): T {
+function applyRenderOptions<T extends FlexStyle> ({ horz, vert }: IRenderOptions, place: Placement, style?: T): T {
   if (style === null || style === undefined) {
     style = {} as any
   }
   style.width = horz === 'stretch' ? '100%' : place.width
   style.height = vert === 'stretch' ? '100%' : place.height
   return style
-}
-
-function exists <T> (value: T | null | undefined): value is T {
-  return value !== null && value !== undefined
-}
-
-function useDefault <T> (value: T | null | undefined, defaultValue: T): T {
-  if (exists(value)) {
-    return value
-  }
-  return defaultValue
 }
 
 export interface IBaseProps<T extends React.Component, TStyle extends FlexStyle> {
@@ -229,10 +123,15 @@ export class Component {
     this.backgroundColor = backgroundColor
     this.width = width
     this.height = height
-    this.Render = this.Render.bind(this)
     this.Text = this.Text.bind(this)
+    this.Polygon = this.Polygon.bind(this)
     this.Image = this.Image.bind(this)
     this.Slice9 = this.Slice9.bind(this)
+    this.Render = this.Render.bind(this)
+    this.renderText = this.renderText.bind(this)
+    this.renderPolygon = this.renderPolygon.bind(this)
+    this.renderImage = this.renderImage.bind(this)
+    this.renderSlice9 = this.renderSlice9.bind(this)
   }
 
   Text (props: ITextProps): JSX.Element {
@@ -468,6 +367,7 @@ export class ImagePlacement {
     this.place = new Placement(frame)
     this.parent = parent
     this.Render = this.Render.bind(this)
+    this.img = this.img.bind(this)
   }
 
   Render (props: IBaseProps<Image, ImageStyle>): JSX.Element {
@@ -491,6 +391,7 @@ export class Slice9Placement {
     this.asset = asset
     this.place = new Placement(frame)
     this.parent = parent
+    this.render = this.render.bind(this)
   }
 
   render (style?: ViewStyle, ref?: React.Ref<View>, onLayout?: () => any): JSX.Element {
@@ -577,6 +478,7 @@ export class RGBA {
     this.g = exists(parts) ? parseInt(parts[2], 16) : 255
     this.b = exists(parts) ? parseInt(parts[3], 16) : 255
     this.a = exists(parts) && exists(parts[4]) ? parseInt(parts[4], 16) : 255
+    this.avg = this.avg.bind(this)
   }
 
   toString (): string {
@@ -657,6 +559,7 @@ export class Border {
     this.dashPattern = options === null || options.dashPattern === undefined ? [] : options.dashPattern
     this.borderStyle = dashPatternToBorderStyle(this.dashPattern)
     this.radius = options === null || options.radius === undefined ? 0 : options.radius
+    this.style = this.style.bind(this)
   }
 
   style (): ViewStyle {
@@ -710,6 +613,7 @@ export class Polygon {
     this.parent = parent
     this.Render = this.Render.bind(this)
     this.RenderRect = this.RenderRect.bind(this)
+    this.borderStyle = this.borderStyle.bind(this)
   }
 
   Render (props: IBaseProps<Image, ImageStyle>): JSX.Element {
@@ -800,6 +704,8 @@ export class Text {
       position: 'absolute'
     }
     this.Render = this.Render.bind(this)
+    this.render = this.render.bind(this)
+    this.renderAbsolute = this.renderAbsolute.bind(this)
   }
 
   Render (props: ITextBaseProps): JSX.Element {

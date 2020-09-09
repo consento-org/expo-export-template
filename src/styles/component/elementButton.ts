@@ -1,8 +1,7 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import { Component, Polygon, GradientType, Text } from '../Component'
 import { Color } from '../Color'
 import { TextStyles } from '../TextStyles'
-
 /* eslint-disable lines-between-class-members */
 export class ElementButtonClass extends Component {
   bg: Polygon

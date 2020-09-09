@@ -1,10 +1,9 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import { Component, Link } from '../Component'
 import { elementItem } from './elementItem'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { Color } from '../Color'
-
 /* eslint-disable lines-between-class-members */
 export class ScreenSpaceListClass extends Component {
   item1 = new Link(elementItem, { x: 0, y: 131, w: 375, h: 67 }, {})

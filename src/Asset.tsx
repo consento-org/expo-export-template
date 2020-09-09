@@ -1,10 +1,7 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import React from 'react'
 import { Image, ImageStyle, View, ViewStyle, ImageSourcePropType, TouchableOpacity, FlexStyle, GestureResponderEvent } from 'react-native'
-
-function exists <T> (value: T | null | undefined): value is T {
-  return value !== null && value !== undefined
-}
+import { exists } from './styles/util/lang'
 
 class Cache<Type, Args> {
   cache: { [key: string]: Type } = {}
@@ -37,6 +34,7 @@ export class ImageAsset {
       }
       return this.img(style)
     }
+    this.img = this.img.bind(this)
   }
 
   img (style?: FlexStyle, ref?: React.Ref<Image>, onLayout?: () => any): JSX.Element {
@@ -117,6 +115,7 @@ export class Slice9 {
       throw new Error('For a slice-9 we need 9 resources!')
     }
     this._slices = slices
+    this.render = this.render.bind(this)
   }
 
   render (style?: ViewStyle, ref?: React.Ref<View>, onLayout?: () => any): JSX.Element {

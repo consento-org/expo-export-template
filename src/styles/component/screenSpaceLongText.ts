@@ -1,10 +1,9 @@
-// This file has been generated with expo-export@3.8.0, a Sketch plugin.
+// This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import { Component, Link, Text } from '../Component'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { TextStyles } from '../TextStyles'
 import { Color } from '../Color'
-
 /* eslint-disable lines-between-class-members */
 export class ScreenSpaceLongTextClass extends Component {
   header = new Link(elementHeader, { x: 0, y: 0.5, w: 376, h: 117 }, {})
