@@ -11,8 +11,11 @@ import { Header } from './components/Header'
 import { SpaceContent } from './SpaceContent'
 import { TimeContent } from './TimeContent'
 import { MindContent } from './MindContent'
-import { Component, ImagePlacement, Link, Text } from '../styles/Component'
 import { ElementHeaderClass } from '../styles/design/component/elementHeader'
+import { ImagePlacement } from '../styles/util/ImagePlacement'
+import { Link } from '../styles/util/Link'
+import { Component } from '../styles/util/Component'
+import { Text } from '../styles/util/Text'
 
 const root = createStackNavigator()
 
@@ -97,7 +100,7 @@ const screenOptions: StackNavigationOptions = {
       cardStyle: {
         transform: [
           multiply(current.progress, [screen.width, 0]),
-          next?.progress === undefined ? multiply(next.progress, [0, -screen.width]) : { translateX: 0 }
+          next?.progress !== undefined ? multiply(next.progress, [0, -screen.width]) : { translateX: 0 }
         ]
       }
     }

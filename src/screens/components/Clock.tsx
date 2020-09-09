@@ -2,8 +2,9 @@ import React from 'react'
 import { ITimeInSeconds } from '../util/useSeconds'
 import Svg, { Circle, Line, Linecap, Linejoin } from 'react-native-svg'
 import { elementClock } from '../../styles/design/component/elementClock'
-import { TLineEnd, Polygon } from '../../styles/Component'
 import { ViewStyle } from 'react-native'
+import { Polygon } from '../../styles/util/Polygon'
+import { TLineEnd } from '../../styles/util/Border'
 
 const viewBox = `0 0 ${elementClock.width} ${elementClock.height}`
 const radius = elementClock.width / 2

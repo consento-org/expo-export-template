@@ -1,6 +1,7 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, ImagePlacement } from '../../Component'
+import { Component } from '../../util/Component'
 import { Asset } from '../Asset'
+import { ImagePlacement } from '../../util/ImagePlacement'
 import { Color } from '../Color'
 /* eslint-disable lines-between-class-members */
 export class ScreenLoadingClass extends Component {

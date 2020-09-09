@@ -1,8 +1,11 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, ImagePlacement, Text, Link } from '../../Component'
+import { Component } from '../../util/Component'
 import { Asset } from '../Asset'
+import { ImagePlacement } from '../../util/ImagePlacement'
+import { Text } from '../../util/Text'
 import { TextStyles } from '../TextStyles'
 import { elementHeader } from './elementHeader'
+import { Link } from '../../util/Link'
 import { Color } from '../Color'
 /* eslint-disable lines-between-class-members */
 export class ScreenMindClass extends Component {

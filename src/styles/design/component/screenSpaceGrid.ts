@@ -1,6 +1,7 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, Link } from '../../Component'
+import { Component } from '../../util/Component'
 import { elementBox } from './elementBox'
+import { Link } from '../../util/Link'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { Color } from '../Color'

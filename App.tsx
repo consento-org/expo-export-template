@@ -3,9 +3,9 @@ import 'react-native-gesture-handler' // Imported to fix gesture error in tab na
 import { SafeAreaProvider, useSafeArea } from 'react-native-safe-area-context'
 import { Text, StatusBar, View, StatusBarStyle } from 'react-native'
 import { Loading } from './src/screens/Loading'
-import { loadFonts } from './src/styles/Font'
+import { loadFonts } from './src/styles/design/Font'
 import { NavigationContainer, navigationRef } from './src/screens/util/navigate'
-import { elementHeader } from './src/styles/component/elementHeader'
+import { elementHeader } from './src/styles/design/component/elementHeader'
 
 function TopBar ({ backgroundColor, barStyle }: { backgroundColor: string, barStyle: StatusBarStyle }): JSX.Element {
   const safeArea = useSafeArea()

@@ -1,7 +1,9 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component, Link, Text } from '../../Component'
+import { Component } from '../../util/Component'
 import { elementHeader } from './elementHeader'
+import { Link } from '../../util/Link'
 import { elementBottomBar } from './elementBottomBar'
+import { Text } from '../../util/Text'
 import { TextStyles } from '../TextStyles'
 import { Color } from '../Color'
 /* eslint-disable lines-between-class-members */
