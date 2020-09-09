@@ -5,7 +5,7 @@ import { LayerPlacement } from '../../util/LayerPlacement'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { Color } from '../Color'
-/* eslint-disable lines-between-class-members */
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 export class ScreenSpaceGridClass extends Layer {
   box1 = new LayerPlacement(elementBox, { x: 9, y: 138, w: 115, h: 111 }, {})
   box2 = new LayerPlacement(elementBox, { x: 130.5, y: 138, w: 115, h: 111 }, {})

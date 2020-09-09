@@ -2,21 +2,18 @@
 import { Layer } from '../../util/Layer'
 import { Polygon } from '../../util/Polygon'
 import { Color } from '../Color'
-import { Text } from '../../util/Text'
+import { TextBox } from '../../util/TextBox'
 import { TextStyles } from '../TextStyles'
-/* eslint-disable lines-between-class-members */
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 export class ElementBoxClass extends Layer {
-  bg: Polygon
-  labelEn: Text
-  labelJa: Text
+  bg = new Polygon({ x: 0, y: 0, w: 115, h: 111 }, Color.flatBg, null, [])
+  labelEn = new TextBox('Item', {
+    ...TextStyles.EnBox,
+    textAlignVertical: 'center'
+  }, { x: 6, y: 41.5, w: 103, h: 28 })
+  labelJa = new TextBox('アイテム', TextStyles.JaBox, { x: 0, y: 38.5, w: 115, h: 39 })
   constructor () {
     super('elementBox', 115, 111)
-    this.bg = new Polygon({ x: 0, y: 0, w: 115, h: 111 }, Color.flatBg, null, [], this)
-    this.labelEn = new Text('Item', {
-      ...TextStyles.EnBox,
-      textAlignVertical: 'center'
-    }, { x: 6, y: 41.5, w: 103, h: 28 }, this)
-    this.labelJa = new Text('アイテム', TextStyles.JaBox, { x: 0, y: 38.5, w: 115, h: 39 }, this)
   }
 }
 

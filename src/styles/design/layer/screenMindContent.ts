@@ -6,7 +6,7 @@ import { elementLabel } from './elementLabel'
 import { elementButton } from './elementButton'
 import { elementHeader } from './elementHeader'
 import { Color } from '../Color'
-/* eslint-disable lines-between-class-members */
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 export class ScreenMindContentClass extends Layer {
   input = new LayerPlacement(elementInput, { x: 0, y: 205, w: 375, h: 62 }, {})
   label = new LayerPlacement(elementLabel, { x: 0, y: 140, w: 375, h: 65 }, {})

@@ -4,7 +4,7 @@ import { elementClock } from './elementClock'
 import { LayerPlacement } from '../../util/LayerPlacement'
 import { elementHeader } from './elementHeader'
 import { Color } from '../Color'
-/* eslint-disable lines-between-class-members */
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 export class ScreenTimeContentClass extends Layer {
   clock = new LayerPlacement(elementClock, { x: 67.5, y: 186, w: 240, h: 239 }, {})
   header = new LayerPlacement(elementHeader, { x: 0, y: 0, w: 376, h: 117 }, {})

@@ -14,6 +14,6 @@ const label = localized({ [Locale.ja]: elementLabel.labelJa, [Locale.en]: elemen
 
 export const Label = ({ value }: { value?: string }): JSX.Element => {
   return <View style={styles.container}>
-    <label.Render value={value} />
+    <elementLabel.Text prototype={label} value={value} />
   </View>
 }

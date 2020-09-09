@@ -5,7 +5,7 @@ import { LayerPlacement } from '../../util/LayerPlacement'
 import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { Color } from '../Color'
-/* eslint-disable lines-between-class-members */
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 export class ScreenSpaceListClass extends Layer {
   item1 = new LayerPlacement(elementItem, { x: 0, y: 131, w: 375, h: 67 }, {})
   item2 = new LayerPlacement(elementItem, { x: 0, y: 198, w: 375, h: 67 }, {})

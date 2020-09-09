@@ -33,7 +33,7 @@ export const Input = ({ value, onEdit, targetRef }: { value?: string, onEdit: (t
   }, [])
   return <View style={styles.container}>
     <View style={styles.bright}>
-      <labelElement.Render targetRef={targetRef} vert='none' horz='none' value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
+      <elementInput.Text prototype={labelElement} targetRef={targetRef} vert='none' horz='none' value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
     </View>
   </View>
 }

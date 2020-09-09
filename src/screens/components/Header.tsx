@@ -50,7 +50,8 @@ export const Header = ({ design, screenName }: IHeaderOptions): JSX.Element => {
     </View>
     {
       showBackButton
-        ? <elementHeader.back.Render
+        ? <elementHeader.Image
+          prototype={elementHeader.back}
           vert='none'
           horz='start'
           style={styles.backButton}

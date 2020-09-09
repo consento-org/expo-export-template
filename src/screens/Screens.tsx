@@ -63,16 +63,18 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
                   style={{ width: '100%', height: title.place.bottom - design.illustration.place.top }}
                   onPress={() => navigate([name, 'content'])}
                 >
-                  <design.illustration.Render horz='center' vert='none' />
-                  <title.Render
+                  <design.Image prototype={design.illustration} horz='center' vert='none' />
+                  <design.Text
+                    prototype={title}
+                    value={title.text}
                     horz='center' vert='none'
                     style={{ top: title.place.top - design.illustration.place.top }}
                   />
                 </TouchableOpacity>
               </View>
               <View style={{ height: design.height - design.left.place.top }}>
-                <design.left.Render horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
-                <design.right.Render horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
+                <design.Image prototype={design.left} horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
+                <design.Image prototype={design.right} horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
               </View>
             </View>
           }}</sub.Screen>

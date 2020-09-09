@@ -12,7 +12,7 @@ const labels = { [Locale.ja]: elementItem.labelJa, [Locale.en]: elementItem.labe
 export const ListItem = ({ label }: { label: string }): JSX.Element => {
   const labelItem = localeContent(labels, label)
   return <View style={style}>
-    <elementItem.bg.Render horz='stretch' />
-    <labelItem.Render value={label} horz='stretch' />
+    <elementItem.Polygon prototype={elementItem.bg} horz='stretch' />
+    <elementItem.Text prototype={labelItem} value={label} horz='stretch' />
   </View>
 }
