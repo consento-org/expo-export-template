@@ -1,15 +1,15 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component } from '../../util/Component'
+import { Layer } from '../../util/Layer'
 import { elementHeader } from './elementHeader'
-import { Link } from '../../util/Link'
+import { LayerPlacement } from '../../util/LayerPlacement'
 import { elementBottomBar } from './elementBottomBar'
 import { Text } from '../../util/Text'
 import { TextStyles } from '../TextStyles'
 import { Color } from '../Color'
 /* eslint-disable lines-between-class-members */
-export class ScreenSpaceLongTextClass extends Component {
-  header = new Link(elementHeader, { x: 0, y: 0.5, w: 376, h: 117 }, {})
-  bottomBar = new Link(elementBottomBar, { x: 0, y: 732, w: 375, h: 80 }, {})
+export class ScreenSpaceLongTextClass extends Layer {
+  header = new LayerPlacement(elementHeader, { x: 0, y: 0.5, w: 376, h: 117 }, {})
+  bottomBar = new LayerPlacement(elementBottomBar, { x: 0, y: 732, w: 375, h: 80 }, {})
   textEn: Text
   textJa: Text
   constructor () {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ITimeInSeconds } from '../util/useSeconds'
 import Svg, { Circle, Line, Linecap, Linejoin } from 'react-native-svg'
-import { elementClock } from '../../styles/design/component/elementClock'
+import { elementClock } from '../../styles/design/layer/elementClock'
 import { ViewStyle } from 'react-native'
 import { Polygon } from '../../styles/util/Polygon'
 import { TLineEnd } from '../../styles/util/Border'
@@ -9,8 +9,8 @@ import { TLineEnd } from '../../styles/util/Border'
 const viewBox = `0 0 ${elementClock.width} ${elementClock.height}`
 const radius = elementClock.width / 2
 const center = {
-  x: elementClock.dial.place.x + radius,
-  y: elementClock.dial.place.y + radius
+  x: Number(elementClock.dial.place.x) + radius,
+  y: Number(elementClock.dial.place.y) + radius
 }
 const hourLength = elementClock.hour.place.width
 const minuteLength = elementClock.minute.place.width

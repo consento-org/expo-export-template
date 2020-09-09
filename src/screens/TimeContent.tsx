@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, ViewStyle } from 'react-native'
-import { screenTimeContent } from '../styles/design/component/screenTimeContent'
+import { screenTimeContent } from '../styles/design/layer/screenTimeContent'
 import { useSeconds } from './util/useSeconds'
 import { Clock } from './components/Clock'
 

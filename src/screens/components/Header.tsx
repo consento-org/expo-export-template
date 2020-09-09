@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigationState } from '@react-navigation/native'
 import { ViewStyle, View, ImageStyle } from 'react-native'
 import { IMainScreen } from '../Screens'
-import { elementHeader } from '../../styles/design/component/elementHeader'
+import { elementHeader } from '../../styles/design/layer/elementHeader'
 import { navigate } from '../util/navigate'
 
 export interface IHeaderOptions {

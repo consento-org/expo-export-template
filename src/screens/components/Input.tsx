@@ -1,6 +1,6 @@
 import React, { Ref, useEffect } from 'react'
 import { ViewStyle, View, Text, TextInput } from 'react-native'
-import { elementInput } from '../../styles/design/component/elementInput'
+import { elementInput } from '../../styles/design/layer/elementInput'
 import { localized, Locale } from '../util/locale'
 
 const styles: { container: ViewStyle, bright: ViewStyle, labelElement: ViewStyle } = {

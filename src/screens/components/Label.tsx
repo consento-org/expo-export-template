@@ -1,6 +1,6 @@
 import React from 'react'
 import { ViewStyle, View } from 'react-native'
-import { elementLabel } from '../../styles/design/component/elementLabel'
+import { elementLabel } from '../../styles/design/layer/elementLabel'
 import { localized, Locale } from '../util/locale'
 
 const styles: { container: ViewStyle } = {

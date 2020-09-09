@@ -1,11 +1,11 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component } from '../../util/Component'
+import { Layer } from '../../util/Layer'
 import { Asset } from '../Asset'
 import { ImagePlacement } from '../../util/ImagePlacement'
 import { Polygon } from '../../util/Polygon'
 import { Color } from '../Color'
 /* eslint-disable lines-between-class-members */
-export class ElementHeaderClass extends Component {
+export class ElementHeaderClass extends Layer {
   logo: ImagePlacement
   topBar: Polygon
   back: ImagePlacement

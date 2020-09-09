@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from 'react'
 import { View, ViewStyle, TouchableWithoutFeedback } from 'react-native'
-import { screenLoading } from '../styles/design/component/screenLoading'
+import { screenLoading } from '../styles/design/layer/screenLoading'
 
 const style: ViewStyle = {
   justifyContent: 'center',

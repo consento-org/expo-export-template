@@ -1,11 +1,11 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component } from '../../util/Component'
+import { Layer } from '../../util/Layer'
 import { Polygon } from '../../util/Polygon'
 import { Color } from '../Color'
 import { Text } from '../../util/Text'
 import { TextStyles } from '../TextStyles'
 /* eslint-disable lines-between-class-members */
-export class ElementInputClass extends Component {
+export class ElementInputClass extends Layer {
   bg: Polygon
   bright: Polygon
   inputEn: Text

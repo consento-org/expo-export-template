@@ -1,14 +1,14 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
 import React from 'react'
-import { TextStyle, Text as NativeText, TextInput, ReturnKeyTypeOptions } from 'react-native'
+import { TextStyle, Text, TextInput, ReturnKeyTypeOptions } from 'react-native'
 import { useDefault, exists } from './lang'
-import { Component, TTextContentType, ITextBaseProps } from './Component'
+import { Layer, TTextContentType, ITextBaseProps } from './Layer'
 import { Placement, IFrameData } from './Placement'
 
 export interface ITextRenderOptions {
   value?: string
   style?: TextStyle
-  ref?: React.Ref<NativeText | TextInput>
+  ref?: React.Ref<Text | TextInput>
   selectable?: boolean
   selectTextOnFocus?: boolean
   textContentType?: TTextContentType
@@ -31,14 +31,14 @@ export interface ITextRenderOptions {
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = (): void => {}
 
-export class Text {
+export class TextBox <TParent extends Layer = Layer> {
   text: string
   style: TextStyle
   styleAbsolute: TextStyle
   place: Placement
-  parent: Component
+  parent: TParent
 
-  constructor (text: string, style: TextStyle, frame: IFrameData, parent: Component) {
+  constructor (text: string, style: TextStyle, frame: IFrameData, parent: TParent) {
     this.text = text
     this.style = style
     this.parent = parent
@@ -95,7 +95,7 @@ export class Text {
         returnKeyType={props.returnKeyType}
       >{value}</TextInput>
     }
-    return <NativeText
+    return <Text
       onLayout={props.onLayout}
       ref={props.ref}
       style={{
@@ -103,7 +103,7 @@ export class Text {
         ...props.style
       }}
       selectable={props.selectable}
-    >{value}</NativeText>
+    >{value}</Text>
   }
 
   renderAbsolute (opts: ITextRenderOptions): JSX.Element {

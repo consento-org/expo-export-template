@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, ViewStyle } from 'react-native'
-import { elementItem } from '../../styles/design/component/elementItem'
+import { elementItem } from '../../styles/design/layer/elementItem'
 import { Locale, localeContent } from '../util/locale'
 
 const style: ViewStyle = {

@@ -2,20 +2,20 @@ import React, { forwardRef, Ref } from 'react'
 import { View, ViewStyle, Animated } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack'
-import { screenMind } from '../styles/design/component/screenMind'
-import { screenSpace } from '../styles/design/component/screenSpace'
-import { screenTime } from '../styles/design/component/screenTime'
+import { screenMind } from '../styles/design/layer/screenMind'
+import { screenSpace } from '../styles/design/layer/screenSpace'
+import { screenTime } from '../styles/design/layer/screenTime'
 import { navigate } from './util/navigate'
 import { localized, Locale } from './util/locale'
 import { Header } from './components/Header'
 import { SpaceContent } from './SpaceContent'
 import { TimeContent } from './TimeContent'
 import { MindContent } from './MindContent'
-import { ElementHeaderClass } from '../styles/design/component/elementHeader'
+import { ElementHeaderClass } from '../styles/design/layer/elementHeader'
 import { ImagePlacement } from '../styles/util/ImagePlacement'
-import { Link } from '../styles/util/Link'
-import { Component } from '../styles/util/Component'
-import { Text } from '../styles/util/Text'
+import { LayerPlacement } from '../styles/util/LayerPlacement'
+import { Layer } from '../styles/util/Layer'
+import { TextBox } from '../styles/util/TextBox'
 
 const root = createStackNavigator()
 
@@ -30,13 +30,13 @@ const mainScreenData: Array<{ name: string, design: IMainScreen, Content: () => 
  * the same way. To make sure that the designer doesns't mistake them,
  * we can define an interface that needs to be implemented.
  */
-export interface IMainScreen extends Component {
+export interface IMainScreen extends Layer {
   illustration: ImagePlacement
   left: ImagePlacement
   right: ImagePlacement
-  header: Link<ElementHeaderClass, {}>
-  titleEn: Text
-  titleJa: Text
+  header: LayerPlacement<{}, ElementHeaderClass>
+  titleEn: TextBox
+  titleJa: TextBox
 }
 
 const mainScreens = mainScreenData.map(({ name, design, Content }) => {

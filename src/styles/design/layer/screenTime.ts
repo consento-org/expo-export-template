@@ -1,20 +1,20 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { Component } from '../../util/Component'
+import { Layer } from '../../util/Layer'
 import { Asset } from '../Asset'
 import { ImagePlacement } from '../../util/ImagePlacement'
 import { Text } from '../../util/Text'
 import { TextStyles } from '../TextStyles'
 import { elementHeader } from './elementHeader'
-import { Link } from '../../util/Link'
+import { LayerPlacement } from '../../util/LayerPlacement'
 import { Color } from '../Color'
 /* eslint-disable lines-between-class-members */
-export class ScreenTimeClass extends Component {
+export class ScreenTimeClass extends Layer {
   right: ImagePlacement
   left: ImagePlacement
   illustration: ImagePlacement
   titleEn: Text
   titleJa: Text
-  header = new Link(elementHeader, { x: -1, y: 0, w: 376, h: 117 }, {})
+  header = new LayerPlacement(elementHeader, { x: -1, y: 0, w: 376, h: 117 }, {})
   constructor () {
     super('screenTime', 375, 812, Color.pink)
     this.right = new ImagePlacement(Asset.iconArrowRight, { x: 248, y: 685, w: 127, h: 127 }, this)
