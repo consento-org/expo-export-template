@@ -2,6 +2,7 @@ import React from 'react'
 import { View, ViewStyle } from 'react-native'
 import { Locale, localeContent } from '../util/locale'
 import { elementBox } from '../../styles/design/layer/elementBox'
+import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
 const style: ViewStyle = {
   width: elementBox.width,
@@ -16,6 +17,6 @@ const labels = { [Locale.ja]: elementBox.labelJa, [Locale.en]: elementBox.labelE
 export const GridBox = ({ label }: { label: string }): JSX.Element => {
   const labelItem = localeContent(labels, label)
   return <View style={style}>
-    <elementBox.Text prototype={labelItem} value={label} />
+    <SketchTextBox layer={elementBox} prototype={labelItem} value={label} />
   </View>
 }

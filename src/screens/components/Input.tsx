@@ -2,6 +2,7 @@ import React, { Ref, useEffect } from 'react'
 import { ViewStyle, View, Text, TextInput } from 'react-native'
 import { elementInput } from '../../styles/design/layer/elementInput'
 import { localized, Locale } from '../util/locale'
+import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
 const styles: { container: ViewStyle, bright: ViewStyle, labelElement: ViewStyle } = {
   container: {
@@ -33,7 +34,7 @@ export const Input = ({ value, onEdit, targetRef }: { value?: string, onEdit: (t
   }, [])
   return <View style={styles.container}>
     <View style={styles.bright}>
-      <elementInput.Text prototype={labelElement} targetRef={targetRef} vert='none' horz='none' value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
+      <SketchTextBox layer={elementInput} prototype={labelElement} targetRef={targetRef} vert='none' horz='none' value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
     </View>
   </View>
 }

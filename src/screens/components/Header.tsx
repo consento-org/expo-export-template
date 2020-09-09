@@ -4,6 +4,7 @@ import { ViewStyle, View, ImageStyle } from 'react-native'
 import { IMainScreen } from '../Screens'
 import { elementHeader } from '../../styles/design/layer/elementHeader'
 import { navigate } from '../util/navigate'
+import { SketchImage } from '../../styles/util/react/SketchImage'
 
 export interface IHeaderOptions {
   design: IMainScreen
@@ -50,7 +51,8 @@ export const Header = ({ design, screenName }: IHeaderOptions): JSX.Element => {
     </View>
     {
       showBackButton
-        ? <elementHeader.Image
+        ? <SketchImage
+          layer={elementHeader}
           prototype={elementHeader.back}
           vert='none'
           horz='start'

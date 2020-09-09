@@ -2,6 +2,7 @@ import React from 'react'
 import { ViewStyle, View } from 'react-native'
 import { elementLabel } from '../../styles/design/layer/elementLabel'
 import { localized, Locale } from '../util/locale'
+import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
 const styles: { container: ViewStyle } = {
   container: {
@@ -14,6 +15,6 @@ const label = localized({ [Locale.ja]: elementLabel.labelJa, [Locale.en]: elemen
 
 export const Label = ({ value }: { value?: string }): JSX.Element => {
   return <View style={styles.container}>
-    <elementLabel.Text prototype={label} value={value} />
+    <SketchTextBox layer={elementLabel} prototype={label} value={value} />
   </View>
 }

@@ -1,6 +1,7 @@
 import React, { forwardRef, Ref } from 'react'
 import { View, ViewStyle, TouchableWithoutFeedback } from 'react-native'
 import { screenLoading } from '../styles/design/layer/screenLoading'
+import { SketchImage } from '../styles/util/react/SketchImage'
 
 const style: ViewStyle = {
   justifyContent: 'center',
@@ -13,7 +14,7 @@ const style: ViewStyle = {
 export const Loading = forwardRef((_, ref: Ref<View>): JSX.Element => {
   return <TouchableWithoutFeedback>
     <View style={style} ref={ref}>
-      <screenLoading.Image prototype={screenLoading.splash} vert='none' horz='none' style={{ flexGrow: 1 }} />
+      <SketchImage layer={screenLoading} prototype={screenLoading.splash} vert='none' horz='none' style={{ flexGrow: 1 }} />
     </View>
   </TouchableWithoutFeedback>
 })

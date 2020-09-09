@@ -16,6 +16,8 @@ import { ImagePlacement } from '../styles/util/ImagePlacement'
 import { LayerPlacement } from '../styles/util/LayerPlacement'
 import { Layer } from '../styles/util/Layer'
 import { TextBox } from '../styles/util/TextBox'
+import { SketchImage } from '../styles/util/react/SketchImage'
+import { SketchTextBox } from '../styles/util/react/SketchTextBox'
 
 const root = createStackNavigator()
 
@@ -63,8 +65,9 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
                   style={{ width: '100%', height: title.place.bottom - design.illustration.place.top }}
                   onPress={() => navigate([name, 'content'])}
                 >
-                  <design.Image prototype={design.illustration} horz='center' vert='none' />
-                  <design.Text
+                  <SketchImage layer={design} prototype={design.illustration} horz='center' vert='none' />
+                  <SketchTextBox
+                    layer={design}
                     prototype={title}
                     value={title.text}
                     horz='center' vert='none'
@@ -73,8 +76,8 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
                 </TouchableOpacity>
               </View>
               <View style={{ height: design.height - design.left.place.top }}>
-                <design.Image prototype={design.left} horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
-                <design.Image prototype={design.right} horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
+                <SketchImage layer={design} prototype={design.left} horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
+                <SketchImage layer={design} prototype={design.right} horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
               </View>
             </View>
           }}</sub.Screen>
