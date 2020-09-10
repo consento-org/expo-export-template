@@ -1,11 +1,9 @@
 import React from 'react'
 import { View, Image } from 'react-native'
-import { createBottomTabNavigator, BottomTabNavigationOptions, BottomTabBarOptions } from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator, BottomTabBarOptions } from '@react-navigation/bottom-tabs'
 import { elementBottomBar } from '../styles/design/layer/elementBottomBar'
 import { screenSpaceList } from '../styles/design/layer/screenSpaceList'
 import { screenSpaceGrid } from '../styles/design/layer/screenSpaceGrid'
-import { RouteProp, ParamListBase } from '@react-navigation/native'
-import { ImagePlacement } from '../styles/util/ImagePlacement'
 import { ScrollView } from 'react-native-gesture-handler'
 import { ListItem } from './components/ListItem'
 import { GridBox } from './components/GridBox'
@@ -13,15 +11,6 @@ import { screenSpaceLongText } from '../styles/design/layer/screenSpaceLongText'
 import { localized, Locale } from './util/locale'
 
 const Tab = createBottomTabNavigator()
-
-const screenOptions = ({ route }: { route: RouteProp<ParamListBase, string> }): BottomTabNavigationOptions => {
-  /**
-   * The name of route is matched to layer names in the sketch document.
-   * This way we create a shared vocabulary between the designer and the engineer.
-   */
-  const icon = elementBottomBar.layers[route.name] as ImagePlacement
-  return { tabBarIcon: () => <Image source={icon.image.source()} /> }
-}
 
 const tabBarOptions: BottomTabBarOptions = {
   inactiveBackgroundColor: elementBottomBar.backgroundColor,
@@ -67,11 +56,11 @@ const LongText = (): JSX.Element =>
     </View>
   </ScrollView>
 
+const barLayers = elementBottomBar.layers
 export const SpaceContent = (): JSX.Element => {
-  // return // Render vert="none" horz="none" style={{ borderWidth: 1, width: 100, height: null }}/>
-  return <Tab.Navigator screenOptions={screenOptions} tabBarOptions={tabBarOptions}>
-    <Tab.Screen name='list' component={List} />
-    <Tab.Screen name='grid' component={Grid} />
-    <Tab.Screen name='longText' component={LongText} />
+  return <Tab.Navigator tabBarOptions={tabBarOptions}>
+    <Tab.Screen name='list' component={List} options={{ tabBarIcon: () => <Image source={barLayers.list.image.source()} /> }} />
+    <Tab.Screen name='grid' component={Grid} options={{ tabBarIcon: () => <Image source={barLayers.grid.image.source()} /> }} />
+    <Tab.Screen name='longText' component={LongText} options={{ tabBarIcon: () => <Image source={barLayers.longText.image.source()} /> }} />
   </Tab.Navigator>
 }

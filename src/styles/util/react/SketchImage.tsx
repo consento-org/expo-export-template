@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import React from 'react'
 import { SketchInLayer, applyRenderOptions, IBaseProps } from './SketchInLayer'
 import { Image, ImageStyle } from 'react-native'
@@ -21,7 +21,7 @@ export const SketchImage = (props: IImageProps): JSX.Element => {
   return SketchInLayer({
     ...props,
     place,
-    item: ({ ref, style }: { ref: React.Ref<Image>, style: ImageStyle }) => {
+    item: ({ ref, style }: { ref?: React.Ref<Image>, style?: ImageStyle }) => {
       if (!exists(fadeDuration) && exists(style) && style.resizeMode === 'stretch') {
         // Fixing bugs when stretching items
         fadeDuration = 0

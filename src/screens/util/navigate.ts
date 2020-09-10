@@ -15,16 +15,17 @@ export interface IRoute <TParams = any> {
 }
 
 function routeFromArray <TParams = any> (route: string[], params: TParams): IRoute<TParams> {
-  if (route.length === 0) {
+  const firstRoute = route.shift()
+  if (firstRoute === undefined) {
     throw new Error('Empty route array received')
   }
   const root: IRoute<TParams> = {
-    screen: route.shift()
+    screen: firstRoute
   }
   let current = root
-  while (route.length > 0) {
+  for (const segment of route) {
     const next = {
-      screen: route.shift()
+      screen: segment
     }
     current.params = next
     current = next

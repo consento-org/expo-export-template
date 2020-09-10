@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import { exists, ISketchError, isSketchError } from './lang'
 
 const reg = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})?/ig
@@ -37,11 +37,7 @@ export interface IStop {
   position: number
 }
 
-export enum GradientType {
-  linear = 'linear',
-  radial = 'radial',
-  angular = 'angular'
-}
+export type GradientType = 'linear' | 'radial' | 'angular'
 
 export interface IGradient {
   gradient: {
@@ -59,19 +55,19 @@ export interface IGradient {
 }
 
 function calcAvgColor (stops: IStop[]): string {
-  let rgba: RGBA
-  for (const stop of stops) {
-    const col = new RGBA(stop.color)
-    if (rgba === undefined) {
-      rgba = col
-    } else {
-      rgba = rgba.avg(col)
-    }
+  const first = stops[0]
+  if (first === undefined) {
+    return '#ffffffff'
+  }
+  let rgba: RGBA = new RGBA(first.color)
+  for (let i = 1; i < stops.length; i++) {
+    const stop = stops[i]
+    rgba = rgba.avg(new RGBA(stop.color))
   }
   return rgba.toString()
 }
 
-export type TFillData = string | IGradient | ISketchError
+export type TFillData = string | IGradient | ISketchError | null
 
 export const WHITE = '#ffffffff'
 
@@ -80,7 +76,7 @@ export class Fill {
   color: string
   constructor (data: TFillData) {
     this.data = data
-    if (this.data === null || isSketchError(this.data)) {
+    if (!exists(this.data) || isSketchError(this.data)) {
       this.color = WHITE
     } else if (typeof this.data === 'string') {
       this.color = this.data

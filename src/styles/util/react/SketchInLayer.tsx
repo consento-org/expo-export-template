@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import React from 'react'
 import { FlexStyle, Insets, GestureResponderEvent, ViewStyle, TouchableOpacity, View, LayoutChangeEvent } from 'react-native'
 import { Placement } from '../Placement'
@@ -9,9 +9,7 @@ import { ILayer } from '../types'
 export type TRenderGravity = 'start' | 'end' | 'center' | 'stretch' | 'none'
 
 export function applyRenderOptions<T extends FlexStyle> ({ horz, vert }: IRenderOptions, place: Placement, style?: T): T {
-  if (style === null || style === undefined) {
-    style = {} as any
-  }
+  style = (style ?? {}) as T
   style.width = horz === 'stretch' ? '100%' : place.width
   style.height = vert === 'stretch' ? '100%' : place.height
   return style

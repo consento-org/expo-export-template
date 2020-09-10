@@ -26,5 +26,5 @@ export function localeContent <TElement> (variants: LocaleLookup<TElement>, text
 }
 
 export function localized <TElement> (variants: LocaleLookup<TElement>): TElement {
-  return variants[locale] ?? variants[Locale.en]
+  return variants[locale as Locale] ?? variants[Locale.en]
 }

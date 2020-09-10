@@ -2,15 +2,17 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
+    "allowUnreachableCode": false,
+    "alwaysStrict": true,
+    "isolatedModules": true,
     "target": "ESNext",
     "module": "esnext",
     "jsx": "react-native",
     "lib": ["dom", "ESNext"],
     "moduleResolution": "node",
     "noEmit": true,
-    "skipLibCheck": true,
     "types": ["jest"],
-    "declaration": true
+    "declaration": true,
+    "strict": true
   }
 }

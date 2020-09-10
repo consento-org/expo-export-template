@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 export interface IFrameData {
   x: number
   y: number
@@ -47,9 +47,7 @@ export class Placement {
   }
 
   size<T extends IStylePlace> (style?: T): T {
-    if (style === undefined || style === null) {
-      style = {} as any
-    }
+    style = (style ?? {}) as T
     style.width = this.width
     style.height = this.height
     return style

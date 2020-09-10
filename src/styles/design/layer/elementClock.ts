@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import { Color } from '../Color'
 import { Polygon } from '../../util/Polygon'
 
@@ -12,12 +12,12 @@ export const elementClock = {
     minute: new Polygon({ x: 118.5, y: 119, w: 121, h: 1 }, null, {
       fill: '#000000ff',
       thickness: 2,
-      lineEnd: 'Round'
+      strokeLinecap: 'round'
     }, []),
     hour: new Polygon({ x: 118.93, y: 118.93, w: 64, h: 1 }, null, {
       fill: '#000000ff',
       thickness: 6,
-      lineEnd: 'Round'
+      strokeLinecap: 'round'
     }, [])
   }
 }

@@ -1,10 +1,10 @@
-// This file has been generated with expo-export@3.8.3, a Sketch plugin.
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import { Dimensions, Keyboard, KeyboardEvent } from 'react-native'
 import { createGlobalEffect } from './createGlobalEffect'
 
 const mem = {
-  vw: null,
-  vh: null
+  vw: NaN,
+  vh: NaN
 }
 
 let keyboardSize = 0
@@ -61,4 +61,4 @@ export const useVUnits = createGlobalEffect({
       Keyboard.removeListener('keyboardDidHide', keyboardHandler)
     }
   }
-})
+}) as () => IVUnits
