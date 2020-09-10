@@ -1,5 +1,5 @@
 // This file has been generated with expo-export@3.8.3, a Sketch plugin.
-import { applyRenderOptions, IBaseProps, IRenderProps, SketchInLayer } from './SketchInLayer'
+import { applyRenderOptions, IBaseProps, SketchInLayer } from './SketchInLayer'
 import { Text, TextInput, TextStyle, ReturnKeyTypeOptions } from 'react-native'
 import { TTextContentType, TextBox } from '../TextBox'
 import { ILayer } from '../types'
@@ -33,8 +33,7 @@ export interface ITextProps extends ITextBaseProps {
 }
 
 export const SketchTextBox = (props: ITextProps): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  const renderProps = {
+  return SketchInLayer({
     ...props,
     place: props.prototype.place,
     item: ({ ref, style }) => props.prototype.render({
@@ -55,6 +54,5 @@ export const SketchTextBox = (props: ITextProps): JSX.Element => {
       ref,
       onBlur: props.onBlur
     })
-  } as IRenderProps<Text, TextStyle>
-  return SketchInLayer(renderProps)
+  })
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigationState } from '@react-navigation/native'
-import { ViewStyle, View, ImageStyle } from 'react-native'
+import { ViewStyle, View, Image, ImageStyle } from 'react-native'
 import { IMainScreen } from '../Screens'
 import { elementHeader } from '../../styles/design/layer/elementHeader'
 import { navigate } from '../util/navigate'
@@ -47,7 +47,7 @@ export const Header = ({ design, screenName }: IHeaderOptions): JSX.Element => {
   }
   return <View style={topStyle}>
     <View style={styles.logoContainer}>
-      {elementHeader.logo.img()}
+      <Image source={elementHeader.logo.image.source()} />
     </View>
     {
       showBackButton

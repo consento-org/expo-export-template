@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Image } from 'react-native'
 import { createBottomTabNavigator, BottomTabNavigationOptions, BottomTabBarOptions } from '@react-navigation/bottom-tabs'
 import { elementBottomBar } from '../styles/design/layer/elementBottomBar'
 import { screenSpaceList } from '../styles/design/layer/screenSpaceList'
@@ -20,7 +20,7 @@ const screenOptions = ({ route }: { route: RouteProp<ParamListBase, string> }): 
    * This way we create a shared vocabulary between the designer and the engineer.
    */
   const icon = elementBottomBar[route.name] as ImagePlacement
-  return { tabBarIcon: () => icon.img() }
+  return { tabBarIcon: () => <Image source={icon.image.source()} /> }
 }
 
 const tabBarOptions: BottomTabBarOptions = {
