@@ -6,27 +6,27 @@ import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
 const styles: { container: ViewStyle, bright: ViewStyle, labelElement: ViewStyle } = {
   container: {
-    height: elementInput.height - elementInput.bg.place.top,
+    height: elementInput.height - elementInput.layers.bg.place.top,
     width: '100%',
-    marginTop: elementInput.bg.place.top,
+    marginTop: elementInput.layers.bg.place.top,
     backfaceVisibility: 'visible',
-    backgroundColor: elementInput.bg.fill.color,
+    backgroundColor: elementInput.layers.bg.fill.color,
     display: 'flex',
     alignItems: 'stretch'
   },
   bright: {
     height: '100%',
-    marginLeft: elementInput.bright.place.left,
-    marginRight: elementInput.width - elementInput.bright.place.right,
+    marginLeft: elementInput.layers.bright.place.left,
+    marginRight: elementInput.width - elementInput.layers.bright.place.right,
     backfaceVisibility: 'visible',
-    backgroundColor: elementInput.bright.fill.color
+    backgroundColor: elementInput.layers.bright.fill.color
   },
   labelElement: {
-    top: elementInput.inputEn.place.top
+    top: elementInput.layers.inputEn.place.top
   }
 }
 
-const labelElement = localized({ [Locale.ja]: elementInput.inputJa, [Locale.en]: elementInput.inputEn })
+const labelElement = localized({ [Locale.ja]: elementInput.layers.inputJa, [Locale.en]: elementInput.layers.inputEn })
 
 export const Input = ({ value, onEdit, targetRef }: { value?: string, onEdit: (text: string) => void, targetRef: Ref<Text | TextInput> }): JSX.Element => {
   useEffect(() => {

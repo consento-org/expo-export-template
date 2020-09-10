@@ -47,7 +47,7 @@ export default function App (): JSX.Element {
   return <SafeAreaProvider>
     <NavigationContainer ref={navigationRef}>
       <View style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
-        <TopBar barStyle='light-content' backgroundColor={elementHeader.topBar.fill.color} />
+        <TopBar barStyle='light-content' backgroundColor={elementHeader.layers.topBar.fill.color} />
         <View style={{ flexGrow: 1 }}>
           {
             (error !== undefined)

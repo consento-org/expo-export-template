@@ -9,11 +9,11 @@ import { TLineEnd } from '../../styles/util/Border'
 const viewBox = `0 0 ${elementClock.width} ${elementClock.height}`
 const radius = elementClock.width / 2
 const center = {
-  x: Number(elementClock.dial.place.x) + radius,
-  y: Number(elementClock.dial.place.y) + radius
+  x: Number(elementClock.layers.dial.place.x) + radius,
+  y: Number(elementClock.layers.dial.place.y) + radius
 }
-const hourLength = elementClock.hour.place.width
-const minuteLength = elementClock.minute.place.width
+const hourLength = elementClock.layers.hour.place.width
+const minuteLength = elementClock.layers.minute.place.width
 
 interface IPoint {
   x: number
@@ -58,8 +58,8 @@ export const Clock = ({ width, height, time, style }: { width: number, height: n
     hourLength
   )
   return <Svg width={width} height={height} viewBox={viewBox} style={style}>
-    <Circle r={radius} cx={center.x} cy={center.y} fill={elementClock.dial.fill.color} />
-    <DesignLine line={elementClock.hour} start={center} end={hourEnd} />
-    <DesignLine line={elementClock.minute} start={center} end={minuteEnd} />
+    <Circle r={radius} cx={center.x} cy={center.y} fill={elementClock.layers.dial.fill.color} />
+    <DesignLine line={elementClock.layers.hour} start={center} end={hourEnd} />
+    <DesignLine line={elementClock.layers.minute} start={center} end={minuteEnd} />
   </Svg>
 }

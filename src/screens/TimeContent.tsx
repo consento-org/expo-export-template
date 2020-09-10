@@ -12,12 +12,12 @@ const styles: { container: ViewStyle, svg: ViewStyle} = {
     alignItems: 'center'
   },
   svg: {
-    marginTop: screenTimeContent.clock.place.top - screenTimeContent.header.place.height
+    marginTop: screenTimeContent.layers.clock.place.top - screenTimeContent.layers.header.place.height
   }
 }
 
-const width = screenTimeContent.clock.place.width
-const height = screenTimeContent.clock.place.height
+const width = screenTimeContent.layers.clock.place.width
+const height = screenTimeContent.layers.clock.place.height
 
 export const TimeContent = (): JSX.Element => {
   const time = useSeconds()

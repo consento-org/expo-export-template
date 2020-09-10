@@ -11,7 +11,7 @@ const styles: { container: ViewStyle } = {
   }
 }
 
-const label = localized({ [Locale.ja]: elementLabel.labelJa, [Locale.en]: elementLabel.labelEn })
+const label = localized({ [Locale.ja]: elementLabel.layers.labelJa, [Locale.en]: elementLabel.layers.labelEn })
 
 export const Label = ({ value }: { value?: string }): JSX.Element => {
   return <View style={styles.container}>

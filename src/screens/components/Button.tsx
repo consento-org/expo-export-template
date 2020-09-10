@@ -5,7 +5,7 @@ import { localized, Locale } from '../util/locale'
 import { SketchPolygon } from '../../styles/util/react/SketchPolygon'
 import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
-const label = localized({ [Locale.ja]: elementButton.labelJa, [Locale.en]: elementButton.labelEn })
+const label = localized({ [Locale.ja]: elementButton.layers.labelJa, [Locale.en]: elementButton.layers.labelEn })
 
 const styles: { container: ViewStyle, touch: ViewStyle } = {
   container: {
@@ -24,7 +24,7 @@ export const Button = ({ onPress, value }: { value?: string, onPress?: () => any
   return <View style={styles.container}>
     <TouchableOpacity onPress={onPress}>
       <View style={styles.touch}>
-        <SketchPolygon layer={elementButton} prototype={elementButton.bg} />
+        <SketchPolygon layer={elementButton} prototype={elementButton.layers.bg} />
         <SketchTextBox layer={elementButton} prototype={label} value={value} />
       </View>
     </TouchableOpacity>

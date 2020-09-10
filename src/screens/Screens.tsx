@@ -33,12 +33,14 @@ const mainScreenData: Array<{ name: string, design: IMainScreen, Content: () => 
  * we can define an interface that needs to be implemented.
  */
 export interface IMainScreen extends ILayer {
-  illustration: ImagePlacement
-  left: ImagePlacement
-  right: ImagePlacement
-  header: LayerPlacement<{}, typeof elementHeader>
-  titleEn: TextBox
-  titleJa: TextBox
+  layers: {
+    illustration: ImagePlacement
+    left: ImagePlacement
+    right: ImagePlacement
+    header: LayerPlacement<{}, typeof elementHeader>
+    titleEn: TextBox
+    titleJa: TextBox
+  }
 }
 
 const mainScreens = mainScreenData.map(({ name, design, Content }) => {
@@ -52,7 +54,7 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
   const next = mainScreenData[(index + 1) % mainScreenData.length]
   const prev = mainScreenData[(index === 0 ? mainScreenData.length : index) - 1]
   const sub = createStackNavigator()
-  const title = localized({ [Locale.ja]: design.titleJa, [Locale.en]: design.titleEn })
+  const title = localized({ [Locale.ja]: design.layers.titleJa, [Locale.en]: design.layers.titleEn })
   return () => {
     return <root.Screen key={name} name={name} options={{ headerShown: false }}>{
       () => <View style={mainStyle}>
@@ -62,22 +64,22 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
             return <View style={mainStyle}>
               <View style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <TouchableOpacity
-                  style={{ width: '100%', height: title.place.bottom - design.illustration.place.top }}
+                  style={{ width: '100%', height: title.place.bottom - design.layers.illustration.place.top }}
                   onPress={() => navigate([name, 'content'])}
                 >
-                  <SketchImage layer={design} prototype={design.illustration} horz='center' vert='none' />
+                  <SketchImage layer={design} prototype={design.layers.illustration} horz='center' vert='none' />
                   <SketchTextBox
                     layer={design}
                     prototype={title}
                     value={title.text}
                     horz='center' vert='none'
-                    style={{ top: title.place.top - design.illustration.place.top }}
+                    style={{ top: title.place.top - design.layers.illustration.place.top }}
                   />
                 </TouchableOpacity>
               </View>
-              <View style={{ height: design.height - design.left.place.top }}>
-                <SketchImage layer={design} prototype={design.left} horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
-                <SketchImage layer={design} prototype={design.right} horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
+              <View style={{ height: design.height - design.layers.left.place.top }}>
+                <SketchImage layer={design} prototype={design.layers.left} horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
+                <SketchImage layer={design} prototype={design.layers.right} horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
               </View>
             </View>
           }}</sub.Screen>

@@ -8,11 +8,11 @@ const style: ViewStyle = {
   width: elementBox.width,
   height: elementBox.height,
   backfaceVisibility: 'visible',
-  backgroundColor: elementBox.bg.fill.color,
+  backgroundColor: elementBox.layers.bg.fill.color,
   margin: 5
 }
 
-const labels = { [Locale.ja]: elementBox.labelJa, [Locale.en]: elementBox.labelEn }
+const labels = { [Locale.ja]: elementBox.layers.labelJa, [Locale.en]: elementBox.layers.labelEn }
 
 export const GridBox = ({ label }: { label: string }): JSX.Element => {
   const labelItem = localeContent(labels, label)

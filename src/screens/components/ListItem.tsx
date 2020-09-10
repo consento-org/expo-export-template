@@ -9,12 +9,12 @@ const style: ViewStyle = {
   height: elementItem.height
 }
 
-const labels = { [Locale.ja]: elementItem.labelJa, [Locale.en]: elementItem.labelEn }
+const labels = { [Locale.ja]: elementItem.layers.labelJa, [Locale.en]: elementItem.layers.labelEn }
 
 export const ListItem = ({ label }: { label: string }): JSX.Element => {
   const labelItem = localeContent(labels, label)
   return <View style={style}>
-    <SketchPolygon layer={elementItem} prototype={elementItem.bg} horz='stretch' />
+    <SketchPolygon layer={elementItem} prototype={elementItem.layers.bg} horz='stretch' />
     <SketchTextBox layer={elementItem} prototype={labelItem} value={label} horz='stretch' />
   </View>
 }

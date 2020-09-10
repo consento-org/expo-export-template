@@ -13,7 +13,7 @@ export interface IHeaderOptions {
 
 const styles: { topBase: ViewStyle, logoContainer: ViewStyle, backButton: ImageStyle } = {
   topBase: {
-    height: elementHeader.height - elementHeader.topBar.place.height,
+    height: elementHeader.height - elementHeader.layers.topBar.place.height,
     position: 'relative',
     width: '100%'
   },
@@ -26,7 +26,7 @@ const styles: { topBase: ViewStyle, logoContainer: ViewStyle, backButton: ImageS
   },
   backButton: {
     position: 'absolute',
-    top: elementHeader.back.place.top - elementHeader.topBar.place.height
+    top: elementHeader.layers.back.place.top - elementHeader.layers.topBar.place.height
   }
 }
 
@@ -42,18 +42,18 @@ export const Header = ({ design, screenName }: IHeaderOptions): JSX.Element => {
     backgroundColor: design.backgroundColor
   }
   if (showBackButton) {
-    topStyle.borderBottomWidth = elementHeader.line.border.thickness
-    topStyle.borderColor = elementHeader.line.fill.color
+    topStyle.borderBottomWidth = elementHeader.layers.line.border.thickness
+    topStyle.borderColor = elementHeader.layers.line.fill.color
   }
   return <View style={topStyle}>
     <View style={styles.logoContainer}>
-      <Image source={elementHeader.logo.image.source()} />
+      <Image source={elementHeader.layers.logo.image.source()} />
     </View>
     {
       showBackButton
         ? <SketchImage
           layer={elementHeader}
-          prototype={elementHeader.back}
+          prototype={elementHeader.layers.back}
           vert='none'
           horz='start'
           style={styles.backButton}

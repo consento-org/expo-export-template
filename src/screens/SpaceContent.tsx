@@ -19,18 +19,18 @@ const screenOptions = ({ route }: { route: RouteProp<ParamListBase, string> }): 
    * The name of route is matched to layer names in the sketch document.
    * This way we create a shared vocabulary between the designer and the engineer.
    */
-  const icon = elementBottomBar[route.name] as ImagePlacement
+  const icon = elementBottomBar.layers[route.name] as ImagePlacement
   return { tabBarIcon: () => <Image source={icon.image.source()} /> }
 }
 
 const tabBarOptions: BottomTabBarOptions = {
   inactiveBackgroundColor: elementBottomBar.backgroundColor,
-  activeBackgroundColor: elementBottomBar.active.fill.color,
+  activeBackgroundColor: elementBottomBar.layers.active.fill.color,
   style: {
     shadowOpacity: 0,
     height: elementBottomBar.height,
-    borderTopColor: elementBottomBar.line.fill.color,
-    borderTopWidth: elementBottomBar.line.border.thickness
+    borderTopColor: elementBottomBar.layers.line.fill.color,
+    borderTopWidth: elementBottomBar.layers.line.border.thickness
   },
   showLabel: false
 }
@@ -58,7 +58,7 @@ const Grid = (): JSX.Element =>
     </View>
   </ScrollView>
 
-const longText = localized({ [Locale.ja]: screenSpaceLongText.textJa, [Locale.en]: screenSpaceLongText.textEn })
+const longText = localized({ [Locale.ja]: screenSpaceLongText.layers.textJa, [Locale.en]: screenSpaceLongText.layers.textEn })
 
 const LongText = (): JSX.Element =>
   <ScrollView style={{ backgroundColor: screenSpaceGrid.backgroundColor, height: '100%', width: '100%' }}>
