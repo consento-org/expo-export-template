@@ -17,7 +17,7 @@ const styles: { container: ViewStyle, bright: ViewStyle, labelElement: ViewStyle
   bright: {
     height: '100%',
     marginLeft: elementInput.layers.bright.place.left,
-    marginRight: elementInput.width - elementInput.layers.bright.place.right,
+    marginRight: elementInput.layers.bright.place.right,
     backfaceVisibility: 'visible',
     backgroundColor: elementInput.layers.bright.fill.color
   },
@@ -34,7 +34,7 @@ export const Input = ({ value, onEdit, targetRef }: { value?: string, onEdit: (t
   }, [])
   return <View style={styles.container}>
     <View style={styles.bright}>
-      <SketchTextBox layer={elementInput} prototype={labelElement} targetRef={targetRef} vert='none' horz='none' value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
+      <SketchTextBox prototype={labelElement} targetRef={targetRef} value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
     </View>
   </View>
 }

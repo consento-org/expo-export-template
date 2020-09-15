@@ -14,7 +14,7 @@ const labels = { [Locale.ja]: elementItem.layers.labelJa, [Locale.en]: elementIt
 export const ListItem = ({ label }: { label: string }): JSX.Element => {
   const labelItem = localeContent(labels, label)
   return <View style={style}>
-    <SketchPolygon layer={elementItem} prototype={elementItem.layers.bg} horz='stretch' />
-    <SketchTextBox layer={elementItem} prototype={labelItem} value={label} horz='stretch' />
+    <SketchPolygon prototype={elementItem.layers.bg} horz='stretch' vert='start' />
+    <SketchTextBox prototype={labelItem} value={label} horz='stretch' vert='start' />
   </View>
 }

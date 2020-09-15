@@ -24,8 +24,8 @@ export const Button = ({ onPress, value }: { value?: string, onPress?: () => any
   return <View style={styles.container}>
     <TouchableOpacity onPress={onPress}>
       <View style={styles.touch}>
-        <SketchPolygon layer={elementButton} prototype={elementButton.layers.bg} />
-        <SketchTextBox layer={elementButton} prototype={label} value={value} />
+        <SketchPolygon prototype={elementButton.layers.bg} horz='start' vert='start' />
+        <SketchTextBox prototype={label} value={value} horz='start' vert='start' />
       </View>
     </TouchableOpacity>
   </View>

@@ -1,5 +1,6 @@
 // This file has been generated with expo-export@4.0.0, a Sketch plugin.
-import { exists, ISketchError, isSketchError } from './lang'
+import { exists } from './lang'
+import { IFill, FillData, isSketchError, IStop } from './types'
 
 const reg = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})?/ig
 const hex = (c: number): string => (c >= 0x10) ? c.toString(16) : `0${c.toString(16)}`
@@ -32,28 +33,6 @@ export class RGBA {
   }
 }
 
-export interface IStop {
-  color: string
-  position: number
-}
-
-export type GradientType = 'linear' | 'radial' | 'angular'
-
-export interface IGradient {
-  gradient: {
-    type: GradientType
-    stops: IStop[]
-    from: {
-      x: number
-      y: number
-    }
-    to: {
-      x: number
-      y: number
-    }
-  }
-}
-
 function calcAvgColor (stops: IStop[]): string {
   const first = stops[0]
   if (first === undefined) {
@@ -67,14 +46,12 @@ function calcAvgColor (stops: IStop[]): string {
   return rgba.toString()
 }
 
-export type TFillData = string | IGradient | ISketchError | null
-
 export const WHITE = '#ffffffff'
 
-export class Fill {
-  data: TFillData
+export class Fill implements IFill {
+  data: FillData
   color: string
-  constructor (data: TFillData) {
+  constructor (data: FillData) {
     this.data = data
     if (!exists(this.data) || isSketchError(this.data)) {
       this.color = WHITE

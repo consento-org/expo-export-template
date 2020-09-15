@@ -15,6 +15,6 @@ const label = localized({ [Locale.ja]: elementLabel.layers.labelJa, [Locale.en]:
 
 export const Label = ({ value }: { value?: string }): JSX.Element => {
   return <View style={styles.container}>
-    <SketchTextBox layer={elementLabel} prototype={label} value={value} />
+    <SketchTextBox prototype={label} value={value} horz='start' vert='start' />
   </View>
 }

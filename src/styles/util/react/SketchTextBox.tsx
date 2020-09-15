@@ -2,7 +2,6 @@
 import { applyRenderOptions, IBaseProps, SketchInLayer } from './SketchInLayer'
 import { Text, TextInput, TextStyle, ReturnKeyTypeOptions } from 'react-native'
 import { TTextContentType, TextBox } from '../TextBox'
-import { ILayer } from '../types'
 
 export interface ITextBaseProps extends IBaseProps<Text | TextInput, TextStyle> {
   value?: string
@@ -27,7 +26,6 @@ export interface ITextBaseProps extends IBaseProps<Text | TextInput, TextStyle> 
 
 export interface ITextProps extends ITextBaseProps {
   value?: string
-  layer: ILayer
   prototype: TextBox
 }
 

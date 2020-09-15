@@ -13,11 +13,11 @@ export const screenSpace = {
   height: 812,
   backgroundColor: Color.green,
   layers: {
-    right: new ImagePlacement(ImageAsset.iconArrowRight, { x: 248, y: 685, w: 127, h: 127 }),
-    left: new ImagePlacement(ImageAsset.iconArrowLeft, { x: 0, y: 685, w: 127, h: 127 }),
-    illustration: new ImagePlacement(ImageAsset.illustrationSpace, { x: 46.5, y: 218, w: 282, h: 278 }),
-    titleEn: new TextBox('Space', TextStyles.EnMain, { x: 35.5, y: 456, w: 304, h: 114 }),
-    titleJa: new TextBox('宇宙', TextStyles.JaMain, { x: 35.5, y: 456, w: 304, h: 114 }),
-    header: new LayerPlacement(elementHeader, { x: -1, y: 0, w: 376, h: 117 }, {})
+    right: new ImagePlacement(ImageAsset.iconArrowRight, { x: 248, y: 685, w: 127, h: 127, r: 0, b: 0 }),
+    left: new ImagePlacement(ImageAsset.iconArrowLeft, { x: 0, y: 685, w: 127, h: 127, r: 248, b: 0 }),
+    illustration: new ImagePlacement(ImageAsset.illustrationSpace, { x: 46.5, y: 218, w: 282, h: 278, r: 46.5, b: 316 }),
+    titleEn: new TextBox('Space', TextStyles.EnMain, { x: 35.5, y: 456, w: 304, h: 114, r: 35.5, b: 242 }),
+    titleJa: new TextBox('宇宙', TextStyles.JaMain, { x: 35.5, y: 456, w: 304, h: 114, r: 35.5, b: 242 }),
+    header: new LayerPlacement(elementHeader, { x: -1, y: 0, w: 376, h: 117, r: 0, b: 695 }, {})
   }
 }

@@ -10,7 +10,7 @@ export const screenTimeContent = {
   height: 812,
   backgroundColor: Color.bg,
   layers: {
-    clock: new LayerPlacement(elementClock, { x: 67.5, y: 186, w: 240, h: 239 }, {}),
-    header: new LayerPlacement(elementHeader, { x: 0, y: 0, w: 376, h: 117 }, {})
+    clock: new LayerPlacement(elementClock, { x: 67.5, y: 186, w: 240, h: 239, r: 67.5, b: 387 }, {}),
+    header: new LayerPlacement(elementHeader, { x: 0, y: 0, w: 376, h: 117, r: -1, b: 695 }, {})
   }
 }

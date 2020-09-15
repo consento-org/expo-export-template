@@ -64,22 +64,21 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
             return <View style={mainStyle}>
               <View style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <TouchableOpacity
-                  style={{ width: '100%', height: title.place.bottom - design.layers.illustration.place.top }}
+                  style={{ width: '100%', height: title.place.height + title.place.top - design.layers.illustration.place.top, position: 'relative' }}
                   onPress={() => navigate([name, 'content'])}
                 >
-                  <SketchImage layer={design} prototype={design.layers.illustration} horz='center' vert='none' />
+                  <SketchImage prototype={design.layers.illustration} horz='center' />
                   <SketchTextBox
-                    layer={design}
                     prototype={title}
                     value={title.text}
-                    horz='center' vert='none'
+                    horz='center'
                     style={{ top: title.place.top - design.layers.illustration.place.top }}
                   />
                 </TouchableOpacity>
               </View>
               <View style={{ height: design.height - design.layers.left.place.top }}>
-                <SketchImage layer={design} prototype={design.layers.left} horz='start' vert='none' onPress={() => navigate([prev.name, 'main'])} />
-                <SketchImage layer={design} prototype={design.layers.right} horz='end' vert='none' onPress={() => navigate([next.name, 'main'])} />
+                <SketchImage prototype={design.layers.left} horz='start' onPress={() => navigate([prev.name, 'main'])} />
+                <SketchImage prototype={design.layers.right} horz='end' onPress={() => navigate([next.name, 'main'])} />
               </View>
             </View>
           }}</sub.Screen>

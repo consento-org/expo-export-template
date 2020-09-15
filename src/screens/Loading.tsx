@@ -14,7 +14,7 @@ const style: ViewStyle = {
 export const Loading = forwardRef((_, ref: Ref<View>): JSX.Element => {
   return <TouchableWithoutFeedback>
     <View style={style} ref={ref}>
-      <SketchImage layer={screenLoading} prototype={screenLoading.layers.splash} vert='none' horz='none' style={{ flexGrow: 1 }} />
+      <SketchImage prototype={screenLoading.layers.splash} vert='none' horz='none' style={{ flexGrow: 1 }} />
     </View>
   </TouchableWithoutFeedback>
 })

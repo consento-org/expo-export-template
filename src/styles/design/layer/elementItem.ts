@@ -9,8 +9,8 @@ export const elementItem = {
   width: 375,
   height: 73,
   layers: {
-    bg: new Polygon({ x: 0, y: 6, w: 375, h: 67 }, Color.flatBg, null, []),
-    labelEn: new TextBox('Item', TextStyles.EnItem, { x: 10, y: 6, w: 355, h: 67 }),
-    labelJa: new TextBox('アイテム', TextStyles.JaItem, { x: 10, y: 8.5, w: 355, h: 56 })
+    bg: new Polygon({ x: 0, y: 6, w: 375, h: 67, r: 0, b: 0 }, Color.flatBg, null, []),
+    labelEn: new TextBox('Item', TextStyles.EnItem, { x: 10, y: 6, w: 355, h: 67, r: 10, b: 0 }),
+    labelJa: new TextBox('アイテム', TextStyles.JaItem, { x: 10, y: 8.5, w: 355, h: 56, r: 10, b: 8.5 })
   }
 }

@@ -9,6 +9,6 @@ export const screenLoading = {
   height: 812,
   backgroundColor: Color.white,
   layers: {
-    splash: new ImagePlacement(ImageAsset.splash, { x: 0, y: 224, w: 375, h: 364 })
+    splash: new ImagePlacement(ImageAsset.splash, { x: 0, y: 224, w: 375, h: 364, r: 0, b: 224 })
   }
 }

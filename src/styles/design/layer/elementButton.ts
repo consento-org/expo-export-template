@@ -9,7 +9,7 @@ export const elementButton = {
   width: 170,
   height: 80,
   layers: {
-    bg: new Polygon({ x: 6, y: 6, w: 158, h: 68 }, {
+    bg: new Polygon({ x: 6, y: 6, w: 158, h: 68, r: 6, b: 6 }, {
       gradient: {
         type: 'linear',
         stops: [
@@ -20,7 +20,7 @@ export const elementButton = {
         to: { x: 0.5, y: 1 }
       }
     }, { radius: 12 }, []),
-    labelEn: new TextBox('OK', TextStyles.EnButton, { x: 11.5, y: 20, w: 147, h: 40 }),
-    labelJa: new TextBox('了解', TextStyles.JaButton, { x: 11.5, y: 13, w: 147, h: 40 })
+    labelEn: new TextBox('OK', TextStyles.EnButton, { x: 11.5, y: 20, w: 147, h: 40, r: 11.5, b: 20 }),
+    labelJa: new TextBox('了解', TextStyles.JaButton, { x: 11.5, y: 13, w: 147, h: 40, r: 11.5, b: 27 })
   }
 }

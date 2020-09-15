@@ -47,7 +47,7 @@ export const EnLongText: TextStyle = {
   ...En,
   color: Color.text,
   fontSize: 31,
-  lineHeight: 31,
+  lineHeight: 37,
   textAlignVertical: 'top'
 }
 

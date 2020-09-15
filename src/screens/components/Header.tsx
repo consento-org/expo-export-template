@@ -52,9 +52,7 @@ export const Header = ({ design, screenName }: IHeaderOptions): JSX.Element => {
     {
       showBackButton
         ? <SketchImage
-          layer={elementHeader}
           prototype={elementHeader.layers.back}
-          vert='none'
           horz='start'
           style={styles.backButton}
           onPress={() => navigate([screenName, 'main'])}

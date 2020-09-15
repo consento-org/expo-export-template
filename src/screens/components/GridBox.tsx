@@ -17,6 +17,6 @@ const labels = { [Locale.ja]: elementBox.layers.labelJa, [Locale.en]: elementBox
 export const GridBox = ({ label }: { label: string }): JSX.Element => {
   const labelItem = localeContent(labels, label)
   return <View style={style}>
-    <SketchTextBox layer={elementBox} prototype={labelItem} value={label} />
+    <SketchTextBox prototype={labelItem} value={label} horz='start' vert='start' />
   </View>
 }
