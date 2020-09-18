@@ -1,5 +1,5 @@
 // This file has been generated with expo-export@4.0.0, a Sketch plugin.
-import { ImageSourcePropType, TextStyle, FlexStyle } from 'react-native'
+import { ImageSourcePropType, TextStyle } from 'react-native'
 import { Placement } from './Placement'
 
 export interface ISize {
@@ -27,29 +27,25 @@ export interface ISketchError {
   error: string
 }
 
-export interface ILayer<TLayers = any> extends ISize {
+export interface IBaseLayer extends ISize {
   name: string
   backgroundColor?: string | undefined
-  layers?: TLayers
 }
 
-export interface IImageAsset extends ILayer {
+export interface ILayer <Type = any> extends IBaseLayer {
+  layers?: Type
+}
+
+export interface IImageAsset extends IBaseLayer {
   source: () => ImageSourcePropType
 }
 
-export interface ISlice9 extends ILayer {
-  slice: Placement
-  slices: () => [
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType
-  ]
+export interface IShadow {
+  x: number
+  y: number
+  blur: number
+  spread: number
+  color: string
 }
 
 export type ArrowHead = 'None' | 'OpenArrow' | 'FilledArrow' | 'Line' | 'OpenCircle' | 'FilledCircle' | 'OpenSquare' | 'FilledSquare'
@@ -57,18 +53,7 @@ export type Linecap = 'butt' | 'square' | 'round'
 export type Linejoin = 'miter' | 'bevel' | 'round'
 export type BorderStyle = 'dotted' | 'dashed' | 'solid'
 export type GradientType = 'linear' | 'radial' | 'angular'
-
-export interface IBorder {
-  endArrowhead: ArrowHead
-  startArrowhead: ArrowHead
-  strokeLinecap: Linecap
-  strokeLinejoin: Linejoin
-  dashPattern: number[]
-  fill: IFill
-  thickness: number
-  radius: number
-  borderStyle: BorderStyle
-}
+export type RenderGravity = 'start' | 'end' | 'center' | 'stretch' | 'none'
 
 export interface IStop {
   color: string
@@ -90,18 +75,22 @@ export interface IGradient {
   }
 }
 
+export interface IBorder {
+  endArrowhead: ArrowHead
+  startArrowhead: ArrowHead
+  strokeLinecap: Linecap
+  strokeLinejoin: Linejoin
+  dashPattern: number[]
+  fill: IFill
+  thickness: number
+  radius: number
+  borderStyle: BorderStyle
+}
+
 export type FillData = string | IGradient | ISketchError | null
 
 export interface IFill {
   data: FillData
-  color: string
-}
-
-export interface IShadow {
-  x: number
-  y: number
-  blur: number
-  spread: number
   color: string
 }
 
@@ -116,8 +105,22 @@ export interface IPolygon {
 export interface ITextBox {
   text: string
   style: TextStyle
-  styleAbsolute: TextStyle
   place: Placement
+}
+
+export interface ISlice9 extends ILayer {
+  slice: Placement
+  slices: () => [
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType,
+    ImageSourcePropType
+  ]
 }
 
 export interface IImagePlacement {
@@ -162,12 +165,6 @@ export function isLayer (input: SketchType): input is ILayer {
   return 'name' in input
 }
 
-type StyleTemplate <TStyle extends FlexStyle, TElement> = (place: Placement, elem: TElement) => TStyle
-
-interface ISketchElementBase <TStyle extends FlexStyle, TSource> {
-  style?: TStyle | StyleTemplate<TStyle, TSource>
-}
-
-export interface ISketchElementProps <TStyle extends FlexStyle, TSource extends SketchType> extends ISketchElementBase<TStyle, TSource> {
+export interface ISketchElementProps <TSource extends SketchType> {
   src: TSource
 }

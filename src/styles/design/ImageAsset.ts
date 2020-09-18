@@ -47,6 +47,12 @@ export const ImageAsset = {
     height: 40,
     source: lazySource('iconBottomLongText', () => require('../../../assets/icon/bottom/long-text.png'))
   },
+  iconBottomShapes: {
+    name: 'iconBottomShapes',
+    width: 40,
+    height: 40,
+    source: lazySource('iconBottomShapes', () => require('../../../assets/icon/bottom/shapes.png'))
+  },
   illustrationMind: {
     name: 'illustrationMind',
     width: 244,

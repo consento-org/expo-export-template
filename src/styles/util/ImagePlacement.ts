@@ -1,5 +1,4 @@
 // This file has been generated with expo-export@4.0.0, a Sketch plugin.
-// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import { Placement } from './Placement'
 import { IImageAsset, IPlacement } from './types'
 

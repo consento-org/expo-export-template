@@ -1,3 +1,4 @@
+// This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import { Fill } from './Fill'
 import { ArrowHead, Linecap, Linejoin, BorderStyle, FillData } from './types'
 

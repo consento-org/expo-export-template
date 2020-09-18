@@ -1,22 +1,43 @@
 import React from 'react'
-import { View, ViewStyle } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Locale, localeContent } from '../util/locale'
 import { elementBox } from '../../styles/design/layer/elementBox'
 import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
-const style: ViewStyle = {
-  width: elementBox.width,
-  height: elementBox.height,
-  backfaceVisibility: 'visible',
-  backgroundColor: elementBox.layers.bg.fill.color,
-  margin: 5
+const { labelJa, labelEn, bg } = elementBox.layers
+
+const labelBase = {
+  flexGrow: 1
 }
 
-const labels = { [Locale.ja]: elementBox.layers.labelJa, [Locale.en]: elementBox.layers.labelEn }
+const styles = StyleSheet.create({
+  container: {
+    width: elementBox.width,
+    height: elementBox.height,
+    backfaceVisibility: 'visible',
+    backgroundColor: bg.fill.color,
+    margin: 5,
+    display: 'flex',
+    alignContent: 'stretch'
+  },
+  [Locale.en]: {
+    ...labelBase,
+    ...labelEn.style
+  },
+  [Locale.ja]: {
+    ...labelBase,
+    ...labelJa.style
+  }
+})
+
+const labels = {
+  [Locale.ja]: { label: labelJa, style: styles[Locale.ja] },
+  [Locale.en]: { label: labelEn, style: styles[Locale.en] }
+}
 
 export const GridBox = ({ label }: { label: string }): JSX.Element => {
-  const labelItem = localeContent(labels, label)
-  return <View style={style}>
-    <SketchTextBox prototype={labelItem} value={label} horz='start' vert='start' />
+  const labelType = localeContent(labels, label)
+  return <View style={styles.container}>
+    <SketchTextBox src={labelType.label} value={label} style={labelType.style} />
   </View>
 }

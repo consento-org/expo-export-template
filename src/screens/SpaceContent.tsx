@@ -1,14 +1,12 @@
 import React from 'react'
-import { View, Image } from 'react-native'
+import { View, StyleSheet, FlatList, useWindowDimensions } from 'react-native'
 import { createBottomTabNavigator, BottomTabBarOptions } from '@react-navigation/bottom-tabs'
 import { elementBottomBar } from '../styles/design/layer/elementBottomBar'
-import { screenSpaceList } from '../styles/design/layer/screenSpaceList'
-import { screenSpaceGrid } from '../styles/design/layer/screenSpaceGrid'
-import { ScrollView } from 'react-native-gesture-handler'
 import { ListItem } from './components/ListItem'
 import { GridBox } from './components/GridBox'
-import { screenSpaceLongText } from '../styles/design/layer/screenSpaceLongText'
-import { localized, Locale } from './util/locale'
+import { SpaceLongText } from './SpaceLongText'
+import { SketchElement } from '../styles/util/react/SketchElement'
+import { elementBox } from '../styles/design/layer/elementBox'
 
 const Tab = createBottomTabNavigator()
 
@@ -24,43 +22,44 @@ const tabBarOptions: BottomTabBarOptions = {
   showLabel: false
 }
 
+const styles = StyleSheet.create({
+  listView: {},
+  gridView: {
+    alignSelf: 'center'
+  }
+})
+
+const data = ['hi', '今日！', 'di', 'ho', 'fix', 'me', 'up', 'break', 'you', 'down']
+
 const List = (): JSX.Element =>
-  <ScrollView style={{ backgroundColor: screenSpaceList.backgroundColor, height: '100%' }}>
-    {
-      ['hi', '今日！', 'di', 'ho', 'fix', 'me', 'up', 'break', 'you', 'down'].map((name, index) => <ListItem key={`list-${index}`} label={name} />)
-    }
-  </ScrollView>
+  <FlatList
+    style={styles.listView}
+    data={data}
+    renderItem={({ item, index }) => <ListItem key={`list-${index}`} label={item} />}
+    keyExtractor={(_, index) => `list-${index}`}
+  />
 
-const Grid = (): JSX.Element =>
-  <ScrollView style={{ backgroundColor: screenSpaceGrid.backgroundColor, height: '100%' }}>
-    <View style={{
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'flex-start',
-      marginTop: 10,
-      marginBottom: 20
-    }}>
-      {
-        ['hi', '今日！', 'di', 'ho', 'fix', 'me', 'up', 'break', 'you', 'down'].map((name, index) => <GridBox key={`list-${index}`} label={name} />)
-      }
-    </View>
-  </ScrollView>
+const Grid = (): JSX.Element => {
+  const window = useWindowDimensions()
+  const numColumns = (window.width / elementBox.width) | 0
+  return <FlatList
+    key={`list-${numColumns}`}
+    style={styles.gridView}
+    data={data}
+    renderItem={({ item, index }) => <GridBox key={`list-${index}`} label={item} />}
+    numColumns={numColumns}
+    keyExtractor={(_, index) => `list-${index}`}
+  />
+}
 
-const longText = localized({ [Locale.ja]: screenSpaceLongText.layers.textJa, [Locale.en]: screenSpaceLongText.layers.textEn })
-
-const LongText = (): JSX.Element =>
-  <ScrollView style={{ backgroundColor: screenSpaceGrid.backgroundColor, height: '100%', width: '100%' }}>
-    <View style={{ width: '100%', padding: 25 }}>
-      <longText.render />
-    </View>
-  </ScrollView>
+const Shapes = (): JSX.Element => <View />
 
 const barLayers = elementBottomBar.layers
 export const SpaceContent = (): JSX.Element => {
   return <Tab.Navigator tabBarOptions={tabBarOptions}>
-    <Tab.Screen name='list' component={List} options={{ tabBarIcon: () => <Image source={barLayers.list.image.source()} /> }} />
-    <Tab.Screen name='grid' component={Grid} options={{ tabBarIcon: () => <Image source={barLayers.grid.image.source()} /> }} />
-    <Tab.Screen name='longText' component={LongText} options={{ tabBarIcon: () => <Image source={barLayers.longText.image.source()} /> }} />
+    <Tab.Screen name='list' component={List} options={{ tabBarIcon: () => <SketchElement src={barLayers.list} /> }} />
+    <Tab.Screen name='grid' component={Grid} options={{ tabBarIcon: () => <SketchElement src={barLayers.grid} /> }} />
+    <Tab.Screen name='longText' component={SpaceLongText} options={{ tabBarIcon: () => <SketchElement src={barLayers.longText} /> }} />
+    <Tab.Screen name='shapes' component={Shapes} options={{ tabBarIcon: () => <SketchElement src={barLayers.shapes} /> }} />
   </Tab.Navigator>
 }

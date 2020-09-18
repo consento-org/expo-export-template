@@ -47,7 +47,7 @@ export const EnLongText: TextStyle = {
   ...En,
   color: Color.text,
   fontSize: 31,
-  lineHeight: 37,
+  lineHeight: 31,
   textAlignVertical: 'top'
 }
 
@@ -58,6 +58,11 @@ export const EnMain: TextStyle = {
   fontSize: 95,
   lineHeight: 95,
   textAlign: 'right'
+}
+
+export const EnPopup: TextStyle = {
+  ...En,
+  textAlign: 'center'
 }
 
 export const Ja: TextStyle = {
@@ -117,6 +122,11 @@ export const JaMain: TextStyle = {
   lineHeight: 95,
   textAlign: 'right'
 }
+
+export const JaPopup: TextStyle = {
+  ...Ja,
+  textAlign: 'center'
+}
 export const TextStyles = {
   En,
   EnBox,
@@ -126,6 +136,7 @@ export const TextStyles = {
   EnLabel,
   EnLongText,
   EnMain,
+  EnPopup,
   Ja,
   JaBox,
   JaButton,
@@ -133,5 +144,6 @@ export const TextStyles = {
   JaItem,
   JaLabel,
   JaLongText,
-  JaMain
+  JaMain,
+  JaPopup
 }

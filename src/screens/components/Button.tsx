@@ -1,32 +1,61 @@
 import React from 'react'
-import { View, ViewStyle, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 import { elementButton } from '../../styles/design/layer/elementButton'
 import { localized, Locale } from '../util/locale'
 import { SketchPolygon } from '../../styles/util/react/SketchPolygon'
 import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
 
-const label = localized({ [Locale.ja]: elementButton.layers.labelJa, [Locale.en]: elementButton.layers.labelEn })
+const { labelJa, labelEn, bg } = elementButton.layers
 
-const styles: { container: ViewStyle, touch: ViewStyle } = {
+const styles = StyleSheet.create({
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   container: {
+    display: 'flex',
     width: elementButton.width,
     height: elementButton.height
+  } as ViewStyle,
+  button: {
+    width: '100%',
+    height: '100%'
   },
   touch: {
-    top: 0,
-    left: 0,
-    width: elementButton.width,
-    height: elementButton.height
+    display: 'flex'
+  },
+  margin: {
+    flexGrow: 1,
+    position: 'relative',
+    marginTop: bg.place.top,
+    marginLeft: bg.place.left,
+    marginRight: bg.place.right,
+    marginBottom: bg.place.bottom
+  },
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  labelBase: {
+    position: 'absolute',
+    width: '100%'
+  } as TextStyle,
+  [Locale.ja]: {
+    ...labelJa.style,
+    marginTop: labelJa.place.top
+  },
+  [Locale.en]: {
+    ...labelEn.style,
+    marginTop: labelEn.place.top
   }
-}
+})
 
-export const Button = ({ onPress, value }: { value?: string, onPress?: () => any }): JSX.Element => {
-  return <View style={styles.container}>
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.touch}>
-        <SketchPolygon prototype={elementButton.layers.bg} horz='start' vert='start' />
-        <SketchTextBox prototype={label} value={value} horz='start' vert='start' />
-      </View>
-    </TouchableOpacity>
+const label = localized({ [Locale.ja]: labelJa, [Locale.en]: labelEn })
+const labelStyle = localized<TextStyle>(styles)
+
+export const Button = ({ onPress, value, style }: { value?: string, onPress?: () => any, style?: ViewStyle }): JSX.Element => {
+  return <View style={style !== undefined ? StyleSheet.compose(styles.container, style) : styles.container}>
+    <View style={styles.margin}>
+      <TouchableOpacity onPress={onPress} style={styles.touch} accessibilityRole='button'>
+        <View>
+          <SketchPolygon src={elementButton.layers.bg} style={styles.button} />
+          <SketchTextBox src={label} value={value} style={StyleSheet.compose(styles.labelBase, labelStyle)} />
+        </View>
+      </TouchableOpacity>
+    </View>
   </View>
 }

@@ -29,7 +29,8 @@
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "expo-screen-orientation": "~1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -37,7 +38,7 @@
     "@types/fbemitter": "^2.0.32",
     "@types/jest": "^26.0.10",
     "@types/react": "^16.9.48",
-    "@types/react-native": "^0.63.11",
+    "@types/react-native": "^0.62.18",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "babel-preset-expo": "^8.2.3",
     "enzyme": "^3.11.0",

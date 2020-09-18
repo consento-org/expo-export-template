@@ -1,10 +1,12 @@
-import React, { Ref, useEffect } from 'react'
-import { ViewStyle, View, Text, TextInput } from 'react-native'
+import React, { useEffect } from 'react'
+import { View, StyleSheet } from 'react-native'
 import { elementInput } from '../../styles/design/layer/elementInput'
 import { localized, Locale } from '../util/locale'
-import { SketchTextBox } from '../../styles/util/react/SketchTextBox'
+import { SketchTextBoxInput } from '../../styles/util/react/SketchTextBox'
 
-const styles: { container: ViewStyle, bright: ViewStyle, labelElement: ViewStyle } = {
+const { bright, inputEn, inputJa } = elementInput.layers
+
+const styles = StyleSheet.create({
   container: {
     height: elementInput.height - elementInput.layers.bg.place.top,
     width: '100%',
@@ -16,25 +18,31 @@ const styles: { container: ViewStyle, bright: ViewStyle, labelElement: ViewStyle
   },
   bright: {
     height: '100%',
-    marginLeft: elementInput.layers.bright.place.left,
-    marginRight: elementInput.layers.bright.place.right,
+    marginLeft: bright.place.left,
+    marginRight: bright.place.right,
     backfaceVisibility: 'visible',
-    backgroundColor: elementInput.layers.bright.fill.color
+    backgroundColor: bright.fill.color
   },
-  labelElement: {
-    top: elementInput.layers.inputEn.place.top
+  [Locale.en]: {
+    top: inputEn.place.top - bright.place.top,
+    ...inputEn.style
+  },
+  [Locale.ja]: {
+    top: inputJa.place.top - bright.place.top,
+    ...inputJa.style
   }
-}
+})
 
-const labelElement = localized({ [Locale.ja]: elementInput.layers.inputJa, [Locale.en]: elementInput.layers.inputEn })
+const labelElement = localized({ [Locale.ja]: inputJa, [Locale.en]: inputEn })
+const labelStyle = localized(styles)
 
-export const Input = ({ value, onEdit, targetRef }: { value?: string, onEdit: (text: string) => void, targetRef: Ref<Text | TextInput> }): JSX.Element => {
+export const Input = ({ value, onEdit }: { value?: string, onEdit: (text: string) => void }): JSX.Element => {
   useEffect(() => {
-    onEdit(labelElement.text)
+    onEdit('')
   }, [])
   return <View style={styles.container}>
     <View style={styles.bright}>
-      <SketchTextBox prototype={labelElement} targetRef={targetRef} value={value} onInstantEdit={onEdit} selectTextOnFocus style={styles.labelElement} />
+      <SketchTextBoxInput src={labelElement} onChangeText={onEdit} placeholder={labelElement.text} selectTextOnFocus style={labelStyle} value={value} />
     </View>
   </View>
 }

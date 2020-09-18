@@ -20,7 +20,7 @@ export const elementButton = {
         to: { x: 0.5, y: 1 }
       }
     }, { radius: 12 }, []),
-    labelEn: new TextBox('OK', TextStyles.EnButton, { x: 11.5, y: 20, w: 147, h: 40, r: 11.5, b: 20 }),
-    labelJa: new TextBox('了解', TextStyles.JaButton, { x: 11.5, y: 13, w: 147, h: 40, r: 11.5, b: 27 })
+    labelEn: new TextBox('Show', TextStyles.EnButton, { x: 11.5, y: 20, w: 147, h: 40, r: 11.5, b: 20 }),
+    labelJa: new TextBox('表示', TextStyles.JaButton, { x: 11.5, y: 13, w: 147, h: 40, r: 11.5, b: 27 })
   }
 }
