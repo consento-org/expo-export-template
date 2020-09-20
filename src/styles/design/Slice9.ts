@@ -2,6 +2,7 @@
 import { ImageSourcePropType } from 'react-native'
 import { createCache } from '../util/Cache'
 import { Placement } from '../util/Placement'
+import { ISlice9 } from '../util/types'
 
 const lazySlices = createCache<[
   ImageSourcePropType,
@@ -15,6 +16,7 @@ const lazySlices = createCache<[
   ImageSourcePropType
 ]>()
 
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
 export const Slice9 = {
   elementPopupBg: {
     name: 'elementPopupBg',
@@ -32,5 +34,5 @@ export const Slice9 = {
       require('../../../assets/element/popup/bg-2-1.png'),
       require('../../../assets/element/popup/bg-2-2.png')
     ])
-  }
+  } as ISlice9
 }

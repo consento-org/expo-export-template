@@ -1,7 +1,7 @@
 // This file has been generated with expo-export@4.0.0, a Sketch plugin.
 import { Color } from '../Color'
-import { elementHeader } from './elementHeader'
 import { LayerPlacement } from '../../util/LayerPlacement'
+import { elementHeader } from './elementHeader'
 import { elementBottomBar } from './elementBottomBar'
 import { Polygon } from '../../util/Polygon'
 
@@ -11,14 +11,14 @@ export const screenSpaceShapes = {
   height: 812,
   backgroundColor: Color.bg,
   layers: {
-    header: new LayerPlacement(elementHeader, { x: 0, y: 0.5, w: 376, h: 117, r: -1, b: 694.5 }, {}),
-    bottomBar: new LayerPlacement(elementBottomBar, { x: 0, y: 732, w: 375, h: 80, r: 0, b: 0 }, {}),
+    header: new LayerPlacement(elementHeader, elementHeader.layers, { x: 0, y: 0.5, w: 376, h: 117, r: -1, b: 694.5 }),
+    bottomBar: new LayerPlacement(elementBottomBar, elementBottomBar.layers, { x: 0, y: 732, w: 375, h: 80, r: 0, b: 0 }),
     star: new Polygon({ x: 124, y: 120, w: 160, h: 164, r: 91, b: 528 }, {
       gradient: {
         type: 'linear',
         stops: [
           { color: '#eeeeeeff', position: 0 },
-          { color: '#d55454ff', position: 0.48823361280487804 },
+          { color: '#d55454ff', position: 0.488233612804878 },
           { color: '#000000ff', position: 1 }
         ],
         from: { x: 0.5, y: 0 },
@@ -83,7 +83,7 @@ export const screenSpaceShapes = {
       thickness: 2,
       startArrowhead: 'Line'
     }, []),
-    rounded: new Polygon({ x: 0, y: 314, w: 169.28, h: 118.27, r: 205.71633913032434, b: 379.72931725504645 }, '#d8d8d8ff', {
+    rounded: new Polygon({ x: 0, y: 314, w: 169.28, h: 118.27, r: 205.7163391303243, b: 379.72931725504645 }, '#d8d8d8ff', {
       fill: '#979797ff',
       thickness: 5,
       strokeLinecap: 'butt',

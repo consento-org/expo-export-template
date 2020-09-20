@@ -4,8 +4,8 @@ import { ImageAsset } from '../ImageAsset'
 import { ImagePlacement } from '../../util/ImagePlacement'
 import { TextBox } from '../../util/TextBox'
 import { TextStyles } from '../TextStyles'
-import { elementHeader } from './elementHeader'
 import { LayerPlacement } from '../../util/LayerPlacement'
+import { elementHeader } from './elementHeader'
 
 export const screenSpace = {
   name: 'screenSpace',
@@ -18,6 +18,6 @@ export const screenSpace = {
     illustration: new ImagePlacement(ImageAsset.illustrationSpace, { x: 46.5, y: 218, w: 282, h: 278, r: 46.5, b: 316 }),
     titleEn: new TextBox('Space', TextStyles.EnMain, { x: 35.5, y: 456, w: 304, h: 114, r: 35.5, b: 242 }),
     titleJa: new TextBox('宇宙', TextStyles.JaMain, { x: 35.5, y: 456, w: 304, h: 114, r: 35.5, b: 242 }),
-    header: new LayerPlacement(elementHeader, { x: -1, y: 0, w: 376, h: 117, r: 0, b: 695 }, {})
+    header: new LayerPlacement(elementHeader, elementHeader.layers, { x: -1, y: 0, w: 376, h: 117, r: 0, b: 695 })
   }
 }
