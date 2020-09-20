@@ -11,7 +11,6 @@ import { Header } from './screens/components/Header'
 import { SpaceContent } from './screens/SpaceContent'
 import { TimeContent } from './screens/TimeContent'
 import { MindContent } from './screens/MindContent'
-import { elementHeader } from './styles/design/layer/elementHeader'
 import { ImagePlacement } from './styles/util/ImagePlacement'
 import { LayerPlacement } from './styles/util/LayerPlacement'
 import { TextBox } from './styles/util/TextBox'
@@ -39,7 +38,7 @@ export interface IMainScreen extends ILayer {
     illustration: ImagePlacement
     left: ImagePlacement
     right: ImagePlacement
-    header: LayerPlacement<{}, typeof elementHeader>
+    header: LayerPlacement<any, any>
     titleEn: TextBox
     titleJa: TextBox
   }
