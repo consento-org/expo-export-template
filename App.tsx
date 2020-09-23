@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import 'react-native-gesture-handler' // Imported to fix gesture error in tab navigation
-import { SafeAreaProvider, useSafeArea } from 'react-native-safe-area-context'
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Text, StatusBar, View, StatusBarStyle, StyleSheet } from 'react-native'
 import { AppLoading } from 'expo'
 import { loadFonts } from './src/styles/design/Font'
@@ -9,7 +9,7 @@ import { elementHeader } from './src/styles/design/layer/elementHeader'
 import * as ScreenOrientation from 'expo-screen-orientation'
 
 function TopBar ({ backgroundColor, barStyle }: { backgroundColor: string, barStyle: StatusBarStyle }): JSX.Element {
-  const safeArea = useSafeArea()
+  const safeArea = useSafeAreaInsets()
   return <>
     <StatusBar
       barStyle={barStyle}
@@ -28,7 +28,6 @@ async function loadApp (): Promise<{ MainScreen: () => JSX.Element }> {
     ScreenOrientation.unlockAsync(),
     loadFonts() // Load the fonts
   ])
-  console.log({ loaded: MainScreen })
   if (typeof MainScreen !== 'function') {
     throw new Error('No "App" constructor returned by ./src/App.tsx')
   }
