@@ -23,7 +23,6 @@ const tabBarOptions: BottomTabBarOptions = {
 }
 
 const styles = StyleSheet.create({
-  listView: {},
   gridView: {
     alignSelf: 'center'
   }
@@ -33,7 +32,6 @@ const data = ['hi', '今日！', 'di', 'ho', 'fix', 'me', 'up', 'break', 'you', 
 
 const List = (): JSX.Element =>
   <FlatList
-    style={styles.listView}
     data={data}
     renderItem={({ item, index }) => <ListItem key={`list-${index}`} label={item} />}
     keyExtractor={(_, index) => `list-${index}`}
@@ -44,7 +42,7 @@ const Grid = (): JSX.Element => {
   const numColumns = (window.width / elementBox.width) | 0
   return <FlatList
     key={`list-${numColumns}`}
-    style={styles.gridView}
+    contentContainerStyle={styles.gridView}
     data={data}
     renderItem={({ item, index }) => <GridBox key={`list-${index}`} label={item} />}
     numColumns={numColumns}
