@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.0.0, a Sketch plugin.
+// This file has been generated with expo-export@4.1.0, a Sketch plugin.
 import { ISize, IPlacement } from './types'
 
 const placeCache: WeakMap<ISize, Placement> = new WeakMap<ISize, Placement>()

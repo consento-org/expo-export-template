@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.0.0, a Sketch plugin.
+// This file has been generated with expo-export@4.1.0, a Sketch plugin.
 import React from 'react'
 import { Image, ImageStyle, ImageProps, TouchableWithoutFeedback, TouchableWithoutFeedbackProps, StyleSheet } from 'react-native'
 import { IImageAsset, IImagePlacement, isImagePlacement, ISketchElementProps } from '../types'

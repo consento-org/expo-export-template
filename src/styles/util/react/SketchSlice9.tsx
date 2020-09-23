@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.0.0, a Sketch plugin.
+// This file has been generated with expo-export@4.1.0, a Sketch plugin.
 import React from 'react'
 import { View, ViewStyle, Image, ImageStyle, ViewProps, StyleSheet } from 'react-native'
 import { ISlice9, ISlice9Placement, ISketchElementProps, isSlice9Placement } from '../types'

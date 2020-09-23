@@ -1,10 +1,11 @@
 import React from 'react'
 import { useNavigationState } from '@react-navigation/native'
 import { ViewStyle, View, StyleSheet } from 'react-native'
-import { IMainScreen } from '../Screens'
+import { IMainScreen } from '../../MainScreen'
 import { elementHeader } from '../../styles/design/layer/elementHeader'
 import { navigate } from '../util/navigate'
 import { SketchElement } from '../../styles/util/react/SketchElement'
+import { ViewBorders } from '../../styles/util/types'
 
 export interface IHeaderOptions {
   design: IMainScreen
@@ -17,16 +18,15 @@ const topBase: ViewStyle = {
   position: 'relative',
   height: elementHeader.height - topBar.place.height,
   width: '100%',
-  borderBottomWidth: line.border.thickness,
-  borderBottomColor: '#00000000'
+  ...line.borderStyle(ViewBorders.bottom)
 }
 
 const styles = StyleSheet.create({
-  topRegular: topBase,
-  topBack: {
+  topRegular: {
     ...topBase,
-    borderBottomColor: line.fill.color
+    borderBottomColor: '#00000000'
   },
+  topBack: topBase,
   logoContainer: {
     position: 'absolute',
     display: 'flex',

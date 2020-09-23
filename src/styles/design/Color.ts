@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.0.0, a Sketch plugin.
+// This file has been generated with expo-export@4.1.0, a Sketch plugin.
 export enum Color {
   pink = '#df20ccff',
   blue = '#20ccdfff',

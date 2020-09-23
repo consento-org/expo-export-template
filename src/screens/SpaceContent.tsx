@@ -7,26 +7,27 @@ import { GridBox } from './components/GridBox'
 import { SpaceLongText } from './SpaceLongText'
 import { SketchElement } from '../styles/util/react/SketchElement'
 import { elementBox } from '../styles/design/layer/elementBox'
+import { ViewBorders } from '../styles/util/types'
 
 const Tab = createBottomTabNavigator()
 
-const tabBarOptions: BottomTabBarOptions = {
-  inactiveBackgroundColor: elementBottomBar.backgroundColor,
-  activeBackgroundColor: elementBottomBar.layers.active.fill.color,
-  style: {
+const styles = StyleSheet.create({
+  bottomBar: {
     shadowOpacity: 0,
     height: elementBottomBar.height,
-    borderTopColor: elementBottomBar.layers.line.fill.color,
-    borderTopWidth: elementBottomBar.layers.line.border.thickness
+    ...elementBottomBar.layers.line.borderStyle(ViewBorders.top)
   },
-  showLabel: false
-}
-
-const styles = StyleSheet.create({
   gridView: {
     alignSelf: 'center'
   }
 })
+
+const tabBarOptions: BottomTabBarOptions = {
+  inactiveBackgroundColor: elementBottomBar.backgroundColor,
+  activeBackgroundColor: elementBottomBar.layers.active.fill.color,
+  style: styles.bottomBar,
+  showLabel: false
+}
 
 const data = ['hi', '今日！', 'di', 'ho', 'fix', 'me', 'up', 'break', 'you', 'down']
 

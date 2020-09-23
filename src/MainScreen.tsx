@@ -81,9 +81,13 @@ const mainScreens = mainScreenData.map(({ name, design, Content }) => {
       height: title.place.top + title.place.height - illustration.place.top
     },
     mainImage: {
+      alignSelf: 'center'
     },
     mainText: {
-      ...title.style
+      ...title.style,
+      marginRight: screenMind.layers.titleEn.place.right,
+      marginLeft: screenMind.layers.titleEn.place.left,
+      marginTop: screenMind.layers.titleEn.place.spaceY(screenMind.layers.illustration.place)
     },
     vertContainer: {
       ...commonStyles.container,

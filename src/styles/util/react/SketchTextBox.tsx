@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.0.0, a Sketch plugin.
+// This file has been generated with expo-export@4.1.0, a Sketch plugin.
 import React from 'react'
 import { Text, TextInput, TextProps, TextInputProps } from 'react-native'
 import { ISketchElementProps, ITextBox } from '../types'

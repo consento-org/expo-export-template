@@ -25,10 +25,7 @@ const DesignLine = ({ line, start, end }: { line: Polygon, start: IPoint, end: I
     y1: start.y,
     x2: end.x,
     y2: end.y,
-    stroke: line.border.fill.color,
-    strokeWidth: line.border.thickness,
-    strokeLinecap: line.border.strokeLinecap,
-    strokeLinejoin: line.border.strokeLinejoin
+    ...line.svg
   })
 }
 
