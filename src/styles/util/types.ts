@@ -1,17 +1,12 @@
-// This file has been generated with expo-export@4.1.0, a Sketch plugin.
+// This file has been generated with expo-export@5.0.0, a Sketch plugin.
 import { ImageSourcePropType, TextStyle, ViewStyle } from 'react-native'
 import { Placement } from './Placement'
 
-export interface ISize {
-  width: number
-  height: number
-}
-
 export interface IPlacement {
-  x: number
-  y: number
   w: number
   h: number
+  x?: number
+  y?: number
   r?: number
   b?: number
 }
@@ -27,12 +22,13 @@ export interface ISketchError {
   error: string
 }
 
-export interface IBaseLayer extends ISize {
+export interface IBaseLayer {
   name: string
-  backgroundColor?: string | undefined
+  place: Placement
 }
 
 export interface ILayer <TLayers extends Object = {}> extends IBaseLayer {
+  backgroundColor?: string | undefined
   layers: TLayers
 }
 
@@ -76,7 +72,7 @@ export interface IGradient {
 }
 
 export interface TBorderData {
-  fill: FillData | null
+  fill?: FillData | null
   thickness?: number
   endArrowhead?: ArrowHead
   startArrowhead?: ArrowHead
@@ -101,7 +97,7 @@ export type FillData = string | IGradient | ISketchError | null
 
 export interface IFill {
   data: FillData
-  color: string
+  color: string | undefined
 }
 
 export enum ViewBorders {
@@ -136,17 +132,16 @@ export type BorderPropsVertical = BorderPropsTop | BorderPropsBottom
 export interface IPolygonSvgStroke {
   stroke: string
   strokeWidth: number
-  strokeDasharray: number[] | null
+  strokeDasharray: string | undefined
   strokeLinecap: Linecap
   strokeLinejoin: Linejoin
 }
 
-export interface IPolygon {
+export interface IPolygon extends IBaseLayer {
   /* eslint-disable @typescript-eslint/method-signature-style */
-  place: Placement
   fill: IFill
   shadows: IShadow[]
-  svg: IPolygonSvgStroke
+  svg: IPolygonSvgStroke | null
   borderStyle (viewBorders: ViewBorders.none): Pick<ViewStyle, BorderPropsBase>
   borderStyle (viewBorders: ViewBorders.left): Pick<ViewStyle, BorderPropsLeft>
   borderStyle (viewBorders: ViewBorders.right): Pick<ViewStyle, BorderPropsRight>
@@ -165,34 +160,33 @@ export interface IPolygon {
   borderStyle (viewBorders?: ViewBorders.all): Pick<ViewStyle, BorderPropsAll>
 }
 
-export interface ITextBox {
+export interface ITextBox extends IBaseLayer {
   text: string
   style: TextStyle
-  place: Placement
 }
 
-export interface ISlice9 extends ILayer {
+export type ISlices = [
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType,
+  ImageSourcePropType
+]
+
+export interface ISlice9 extends IBaseLayer {
   slice: Placement
-  slices: () => [
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType,
-    ImageSourcePropType
-  ]
+  slices: () => ISlices
 }
 
-export interface IImagePlacement {
-  place: Placement
+export interface IImagePlacement extends IImageAsset {
   image: IImageAsset
 }
 
-export interface ISlice9Placement {
-  place: Placement
+export interface ISlice9Placement extends ISlice9 {
   slice9: ISlice9
 }
 
@@ -215,11 +209,11 @@ export function isImageAsset (input: SketchType): input is IImageAsset {
 }
 
 export function isImagePlacement (input: SketchType): input is IImagePlacement {
-  return 'place' in input && 'image' in input
+  return 'image' in input
 }
 
 export function isSlice9Placement (input: SketchType): input is ISlice9Placement {
-  return 'place' in input && 'slice9' in input
+  return 'slice9' in input
 }
 
 export function isLayer (input: SketchType): input is ILayer {

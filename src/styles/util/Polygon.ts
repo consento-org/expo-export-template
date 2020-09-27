@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.1.0, a Sketch plugin.
+// This file has been generated with expo-export@5.0.0, a Sketch plugin.
 import { Placement } from './Placement'
 import { IPlacement, FillData, IShadow, BorderStyle, IBorder, TBorderData, IPolygon, IPolygonSvgStroke, BorderPropsBase, BorderPropsLeft, BorderPropsRight, BorderPropsHorizontal, BorderPropsTop, BorderPropsBottom, BorderPropsVertical, BorderPropsAll, ViewBorders } from './types'
 import { Fill } from './Fill'
@@ -28,7 +28,7 @@ export function borderDefaults (border: TBorderData | null): IBorder {
   }
 }
 
-function createBorderViewStyle (borderColor: string, border: IBorder, borders: number): ViewStyle {
+function createBorderViewStyle (borderColor: string | undefined, border: IBorder, borders: number): ViewStyle {
   const borderStyle = dashPatternToBorderStyle(border.dashPattern)
   const result: ViewStyle = {
     borderRadius: border.radius,
@@ -59,14 +59,16 @@ function createBorderViewStyle (borderColor: string, border: IBorder, borders: n
 }
 
 export class Polygon implements IPolygon {
+  name: string
   place: Placement
   fill: Fill
   shadows: Shadow[]
-  private _svg?: IPolygonSvgStroke
+  private _svg?: IPolygonSvgStroke | null
   private readonly _styles: { [key: number]: ViewStyle }
   private readonly _border: IBorder
 
-  constructor (place: IPlacement, fill: FillData | null, border: TBorderData | null, shadows: IShadow[]) {
+  constructor (name: string, place: IPlacement, fill: FillData | null, border: TBorderData | null, shadows: IShadow[]) {
+    this.name = name
     this._border = borderDefaults(border)
     this.place = new Placement(place)
     this.fill = new Fill(fill)
@@ -74,14 +76,18 @@ export class Polygon implements IPolygon {
     this._styles = {}
   }
 
-  get svg (): IPolygonSvgStroke {
+  get svg (): IPolygonSvgStroke | null {
     if (this._svg === undefined) {
-      this._svg = {
-        stroke: this._border.fill.color,
-        strokeDasharray: this._border?.dashPattern.length > 0 ? this._border?.dashPattern : null,
-        strokeLinecap: this._border.strokeLinecap,
-        strokeLinejoin: this._border.strokeLinejoin,
-        strokeWidth: this._border.thickness
+      if (this._border.fill.color === undefined) {
+        this._svg = null
+      } else {
+        this._svg = {
+          stroke: this._border.fill.color,
+          strokeDasharray: this._border?.dashPattern.length > 0 ? this._border.dashPattern.join(' ') : undefined,
+          strokeLinecap: this._border.strokeLinecap,
+          strokeLinejoin: this._border.strokeLinejoin,
+          strokeWidth: this._border.thickness
+        }
       }
     }
     return this._svg
@@ -113,7 +119,7 @@ export class Polygon implements IPolygon {
     let style = this._styles[borders]
     if (style === undefined) {
       style = StyleSheet.create({
-        viewStyle: createBorderViewStyle(this.svg.stroke, this._border, borders)
+        viewStyle: createBorderViewStyle(this.svg?.stroke, this._border, borders)
       }).viewStyle
       this._styles[borders] = style
     }

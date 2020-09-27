@@ -8,7 +8,7 @@ const { bright, inputEn, inputJa } = elementInput.layers
 
 const styles = StyleSheet.create({
   container: {
-    height: elementInput.height - elementInput.layers.bg.place.top,
+    height: elementInput.place.height - elementInput.layers.bg.place.top,
     width: '100%',
     marginTop: elementInput.layers.bg.place.top,
     backfaceVisibility: 'visible',

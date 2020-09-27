@@ -1,4 +1,4 @@
-// This file has been generated with expo-export@4.1.0, a Sketch plugin.
+// This file has been generated with expo-export@5.0.0, a Sketch plugin.
 import { isImageAsset, ISketchElementProps, isImagePlacement, isTextBox, isSlice9Placement, isSlice9 } from '../types'
 import { ISketchImageProps, SketchImage } from './SketchImage'
 import { ISketchTextBoxProps, SketchTextBox } from './SketchTextBox'

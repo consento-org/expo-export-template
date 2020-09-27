@@ -16,7 +16,7 @@ const { topBar, back, logo, line } = elementHeader.layers
 
 const topBase: ViewStyle = {
   position: 'relative',
-  height: elementHeader.height - topBar.place.height,
+  height: elementHeader.place.height - topBar.place.height,
   width: '100%',
   ...line.borderStyle(ViewBorders.bottom)
 }

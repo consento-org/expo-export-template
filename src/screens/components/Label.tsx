@@ -8,8 +8,8 @@ const { labelJa, labelEn } = elementLabel.layers
 
 const styles = StyleSheet.create({
   container: {
-    width: elementLabel.width,
-    height: elementLabel.height,
+    width: elementLabel.place.width,
+    height: elementLabel.place.height,
     display: 'flex'
   },
   margin: {

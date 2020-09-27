@@ -12,8 +12,8 @@ const labelBase = {
 
 const styles = StyleSheet.create({
   container: {
-    width: elementBox.width,
-    height: elementBox.height,
+    width: elementBox.place.width,
+    height: elementBox.place.height,
     backfaceVisibility: 'visible',
     backgroundColor: bg.fill.color,
     margin: 5,

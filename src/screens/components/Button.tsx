@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   container: {
     display: 'flex',
-    width: elementButton.width,
-    height: elementButton.height
+    width: elementButton.place.width,
+    height: elementButton.place.height
   } as ViewStyle,
   button: {
     width: '100%',

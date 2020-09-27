@@ -1,7 +1,7 @@
-// This file has been generated with expo-export@4.1.0, a Sketch plugin.
+// This file has been generated with expo-export@5.0.0, a Sketch plugin.
 import { ImageSourcePropType } from 'react-native'
 import { createCache } from '../util/Cache'
-import { Placement } from '../util/Placement'
+import { Placement, forSize } from '../util/Placement'
 import { ISlice9 } from '../util/types'
 
 const lazySlices = createCache<[
@@ -20,8 +20,7 @@ const lazySlices = createCache<[
 export const Slice9 = {
   elementPopupBg: {
     name: 'elementPopupBg',
-    width: 327,
-    height: 170,
+    place: forSize(327, 170),
     slice: new Placement({ x: 22, y: 21, w: 284, h: 126, r: 21, b: 23 }),
     slices: lazySlices('elementPopupBg', () => [
       require('../../../assets/element/popup/bg-0-0.png'),

@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator()
 const styles = StyleSheet.create({
   bottomBar: {
     shadowOpacity: 0,
-    height: elementBottomBar.height,
+    height: elementBottomBar.place.height,
     ...elementBottomBar.layers.line.borderStyle(ViewBorders.top)
   },
   gridView: {
@@ -40,7 +40,7 @@ const List = (): JSX.Element =>
 
 const Grid = (): JSX.Element => {
   const window = useWindowDimensions()
-  const numColumns = (window.width / elementBox.width) | 0
+  const numColumns = (window.width / elementBox.place.width) | 0
   return <FlatList
     key={`list-${numColumns}`}
     contentContainerStyle={styles.gridView}

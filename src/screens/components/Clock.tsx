@@ -5,8 +5,8 @@ import { elementClock } from '../../styles/design/layer/elementClock'
 import { ViewStyle } from 'react-native'
 import { Polygon } from '../../styles/util/Polygon'
 
-const viewBox = `0 0 ${elementClock.width} ${elementClock.height}`
-const radius = elementClock.width / 2
+const viewBox = `0 0 ${elementClock.place.width.toString()} ${elementClock.place.height.toString()}`
+const radius = elementClock.place.width / 2
 const center = {
   x: Number(elementClock.layers.dial.place.x) + radius,
   y: Number(elementClock.layers.dial.place.y) + radius

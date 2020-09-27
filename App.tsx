@@ -7,6 +7,7 @@ import { loadFonts } from './src/styles/design/Font'
 import { NavigationContainer, navigationRef } from './src/screens/util/navigate'
 import { elementHeader } from './src/styles/design/layer/elementHeader'
 import * as ScreenOrientation from 'expo-screen-orientation'
+import { WHITE } from './src/styles/util/Fill'
 
 function TopBar ({ backgroundColor, barStyle }: { backgroundColor: string, barStyle: StatusBarStyle }): JSX.Element {
   const safeArea = useSafeAreaInsets()
@@ -60,10 +61,11 @@ export default function App (): JSX.Element {
       onError={error => setLoaded({ MainScreen: () => <ErrorScreen error={error} /> })}
     />
   }
+  const color = elementHeader.layers.topBar.fill.color ?? WHITE
   return <SafeAreaProvider>
     <NavigationContainer ref={navigationRef}>
       <View style={styles.root}>
-        <TopBar barStyle='light-content' backgroundColor={elementHeader.layers.topBar.fill.color} />
+        <TopBar barStyle='light-content' backgroundColor={color} />
         <View style={{ flexGrow: 1 }}>
           <loaded.MainScreen />
         </View>

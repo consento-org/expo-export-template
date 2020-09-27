@@ -1,4 +1,5 @@
-// This file has been generated with expo-export@4.1.0, a Sketch plugin.
+// This file has been generated with expo-export@5.0.0, a Sketch plugin.
+import { forSize } from '../../util/Placement'
 import { Color } from '../Color'
 import { ImageAsset } from '../ImageAsset'
 import { ImagePlacement } from '../../util/ImagePlacement'
@@ -9,18 +10,17 @@ import { elementHeader } from './elementHeader'
 
 export const screenTime = {
   name: 'screenTime',
-  width: 375,
-  height: 812,
+  place: forSize(375, 812),
   backgroundColor: Color.pink,
   layers: {
-    right: new ImagePlacement(ImageAsset.iconArrowRight, { x: 248, y: 685, w: 127, h: 127, r: 0, b: 0 }),
-    left: new ImagePlacement(ImageAsset.iconArrowLeft, { x: 0, y: 685, w: 127, h: 127, r: 248, b: 0 }),
-    illustration: new ImagePlacement(ImageAsset.illustrationTime, { x: 46.5, y: 218, w: 282, h: 278, r: 46.5, b: 316 }),
-    titleEn: new TextBox('Time', {
+    right: new ImagePlacement('right', ImageAsset.iconArrowRight, { x: 248, y: 685, w: 127, h: 127 }),
+    left: new ImagePlacement('left', ImageAsset.iconArrowLeft, { y: 685, w: 127, h: 127, r: 248 }),
+    illustration: new ImagePlacement('illustration', ImageAsset.illustrationTime, { x: 46.5, y: 218, w: 282, h: 278, r: 46.5, b: 316 }),
+    titleEn: new TextBox('titleEn', 'Time', {
       ...TextStyles.EnMain,
       textAlignVertical: 'top'
     }, { x: 35.5, y: 456, w: 304, h: 140, r: 35.5, b: 216 }),
-    titleJa: new TextBox('時間', TextStyles.JaMain, { x: 35.5, y: 456, w: 304, h: 114, r: 35.5, b: 242 }),
-    header: new LayerPlacement(elementHeader, elementHeader.layers, { x: -1, y: 0, w: 376, h: 117, r: 0, b: 695 })
+    titleJa: new TextBox('titleJa', '時間', TextStyles.JaMain, { x: 35.5, y: 456, w: 304, h: 114, r: 35.5, b: 242 }),
+    header: new LayerPlacement('header', elementHeader, elementHeader.layers, { x: -1, w: 376, h: 117, b: 695 })
   }
 }

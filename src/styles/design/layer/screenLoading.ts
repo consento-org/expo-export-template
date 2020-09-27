@@ -1,14 +1,14 @@
-// This file has been generated with expo-export@4.1.0, a Sketch plugin.
+// This file has been generated with expo-export@5.0.0, a Sketch plugin.
+import { forSize } from '../../util/Placement'
 import { Color } from '../Color'
 import { ImageAsset } from '../ImageAsset'
 import { ImagePlacement } from '../../util/ImagePlacement'
 
 export const screenLoading = {
   name: 'screenLoading',
-  width: 375,
-  height: 812,
+  place: forSize(375, 812),
   backgroundColor: Color.white,
   layers: {
-    splash: new ImagePlacement(ImageAsset.splash, { x: 0, y: 224, w: 375, h: 364, r: 0, b: 224 })
+    splash: new ImagePlacement('splash', ImageAsset.splash, { y: 224, w: 375, h: 364, b: 224 })
   }
 }
